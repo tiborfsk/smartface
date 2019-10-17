@@ -8,6 +8,20 @@
         <Version>3.4.0</Version>
         <AssemblyName>sfcli</AssemblyName>
         <AssemblyVersion>3.4.0.0</AssemblyVersion>
+        <Platforms>AnyCPU;x64</Platforms>
+        <RuntimeIdentifiers>win-x64</RuntimeIdentifiers>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+      <PlatformTarget>AnyCPU</PlatformTarget>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      <PlatformTarget>AnyCPU</PlatformTarget>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      <PlatformTarget>x64</PlatformTarget>
     </PropertyGroup>
 
     <ItemGroup>
@@ -44,5 +58,9 @@
         <DependentUpon>SmartFaceProxy.tt</DependentUpon>
       </Compile>
     </ItemGroup>
+
+    <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+      <Exec Command="dotnet publish --no-build -c Release -r win-x64 --self-contained true --output publish&#xD;&#xA;" />
+    </Target>
 
 </Project>
