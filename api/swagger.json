@@ -688,7 +688,7 @@
         ],
         "summary": "uploads an image",
         "description": "",
-        "operationId": "Photos_Post",
+        "operationId": "Frames_Post",
         "consumes": [
           "multipart/form-data"
         ],
@@ -707,7 +707,7 @@
           {
             "name": "Data",
             "in": "formData",
-            "description": "Binary photo to upload",
+            "description": "Binary Frame to upload",
             "required": true,
             "type": "file"
           }
@@ -716,7 +716,7 @@
           "201": {
             "description": "Created",
             "schema": {
-              "$ref": "#/definitions/Photo"
+              "$ref": "#/definitions/Frame"
             }
           }
         }
@@ -1120,6 +1120,68 @@
         "deprecated": false
       }
     },
+    "/api/v1/VisualObjects/{Id}": {
+      "get": {
+        "tags": [
+          "api/v1/VisualObjects"
+        ],
+        "summary": "Gets the specified VisualObjects.",
+        "operationId": "VisualObjects_GetById",
+        "consumes": [],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "Id of VisualObject which is requested.",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/VisualObject"
+            }
+          }
+        },
+        "deprecated": false
+      },
+      "delete": {
+        "tags": [
+          "api/v1/VisualObjects"
+        ],
+        "summary": "Deletes the specified VisualObject.",
+        "operationId": "VisualObjects_DeleteById",
+        "consumes": [],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "Id of VisualObject to be deleted.",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "VisualObject does not exist."
+          }
+        },
+        "deprecated": false
+      }
+    },
     "/api/v1/Faces/{Id}": {
       "get": {
         "tags": [
@@ -1182,13 +1244,13 @@
         "deprecated": false
       }
     },
-    "/api/v1/Persons/{Id}'": {
+    "/api/v1/Tracklets/{Id}'": {
       "get": {
         "tags": [
-          "api/v1/Persons"
+          "api/v1/Tracklets"
         ],
-        "summary": "Gets the specified Person.",
-        "operationId": "Persons_GetById",
+        "summary": "Gets the specified Tracklet.",
+        "operationId": "Tracklets_GetById",
         "consumes": [],
         "produces": [
           "application/json"
@@ -1197,7 +1259,7 @@
           {
             "name": "Id",
             "in": "path",
-            "description": "Id of requested Person.",
+            "description": "Id of requested Tracklet.",
             "required": true,
             "type": "integer",
             "format": "int64"
@@ -1207,7 +1269,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Person"
+              "$ref": "#/definitions/Tracklet"
             }
           }
         },
@@ -1215,10 +1277,10 @@
       },
       "delete": {
         "tags": [
-          "api/v1/Persons"
+          "api/v1/Tracklets"
         ],
-        "summary": "Deletes the specified person.",
-        "operationId": "Persons_DeleteById",
+        "summary": "Deletes the specified Tracklet.",
+        "operationId": "Tracklets_DeleteById",
         "consumes": [],
         "produces": [
           "application/json"
@@ -1227,7 +1289,7 @@
           {
             "name": "Id",
             "in": "path",
-            "description": "Id of person to be deleted.",
+            "description": "Id of Tracklet to be deleted.",
             "required": true,
             "type": "integer",
             "format": "int64"
@@ -1238,7 +1300,7 @@
             "description": "Success"
           },
           "404": {
-            "description": "Person does not exist."
+            "description": "Tracklet does not exist."
           }
         },
         "deprecated": false
@@ -1354,7 +1416,7 @@
           "api/v1/Identities"
         ],
         "summary": "Splits the specified parameters.",
-        "description": "Splits requested Persons from provided Identity into new Identity. Newly created Identity Id will be returned in response.",
+        "description": "Splits requested Tracklets from provided Identity into new Identity. Newly created Identity Id will be returned in response.",
         "operationId": "Identities_Split",
         "consumes": [
           "application/json"
@@ -1366,12 +1428,12 @@
           {
             "name": "Payload",
             "in": "body",
-            "description": "JSON with list of Person Ids that will be split to new Identity and Id of Identity that will be splitted.",
+            "description": "JSON with list of Tracklet Ids that will be split to new Identity and Id of Identity that will be splitted.",
             "required": true,
             "schema": {
               "required": [
                 "IdentityId",
-                "PersonIds"
+                "TrackletIds"
               ],
               "type": "object",
               "properties": {
@@ -1379,7 +1441,7 @@
                   "format": "int64",
                   "type": "integer"
                 },
-                "PersonIds": {
+                "TrackletIds": {
                   "type": "array",
                   "items": {
                     "format": "int64",
@@ -1454,8 +1516,8 @@
         "tags": [
           "api/v1/Identities"
         ],
-        "summary": "Searches Identities by specified photo.",
-        "description": "Search will be performed on all Identities in specified Grouping or Scope, using all of their Faces. Uploaded photo should contain only one face.",
+        "summary": "Searches Identities by specified Frame.",
+        "description": "Search will be performed on all Identities in specified Grouping or Scope, using all of their Faces. Uploaded Frame should contain only one face.",
         "operationId": "Identities_Search",
         "consumes": [
           "multipart/form-data"
@@ -1481,7 +1543,7 @@
           {
             "name": "Data",
             "in": "formData",
-            "description": "Binary face photo to upload.",
+            "description": "Binary face Frame to upload.",
             "required": true,
             "type": "file"
           }
@@ -1497,13 +1559,13 @@
         "deprecated": false
       }
     },
-    "/api/v1/Photos/{Id}": {
+    "/api/v1/Frames/{Id}": {
       "get": {
         "tags": [
-          "api/v1/Photos"
+          "api/v1/Frames"
         ],
-        "summary": "Gets the specified Photo by Id.",
-        "operationId": "Photos_GetById",
+        "summary": "Gets the specified Frame by Id.",
+        "operationId": "Frames_GetById",
         "consumes": [],
         "produces": [
           "application/json"
@@ -1512,7 +1574,7 @@
           {
             "name": "Id",
             "in": "path",
-            "description": "Id of Photo that was requested.",
+            "description": "Id of Frame that was requested.",
             "required": true,
             "type": "integer",
             "format": "int64"
@@ -1522,7 +1584,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Photo"
+              "$ref": "#/definitions/Frame"
             }
           }
         },
@@ -1530,10 +1592,10 @@
       },
       "delete": {
         "tags": [
-          "api/v1/Photos"
+          "api/v1/Frames"
         ],
-        "summary": "Deletes the specified Photo.",
-        "operationId": "Photos_DeleteById",
+        "summary": "Deletes the specified Frame.",
+        "operationId": "Frames_DeleteById",
         "consumes": [],
         "produces": [
           "application/json"
@@ -1542,7 +1604,7 @@
           {
             "name": "Id",
             "in": "path",
-            "description": "Id of Photo that will be deleted.",
+            "description": "Id of Frame that will be deleted.",
             "required": true,
             "type": "integer",
             "format": "int64"
@@ -1559,14 +1621,14 @@
         "deprecated": false
       }
     },
-    "/api/v1/Photos/DeleteBatch": {
+    "/api/v1/Frames/DeleteBatch": {
       "delete": {
         "tags": [
-          "api/v1/Photos"
+          "api/v1/Frames"
         ],
-        "summary": "Delete multiple Photos by their Ids.",
-        "description": "Allows to delete multiple Photos in single call. This will start iterative deletion of Photos from input array. Response will contain array of Photo Ids that could not be deleted with appropriate reason.",
-        "operationId": "Photos_Delete",
+        "summary": "Delete multiple Frames by their Ids.",
+        "description": "Allows to delete multiple Frames in single call. This will start iterative deletion of Frames from input array. Response will contain array of Frame Ids that could not be deleted with appropriate reason.",
+        "operationId": "Frames_Delete",
         "consumes": [
           "application/json"
         ],
@@ -1577,7 +1639,7 @@
           {
             "name": "Payload",
             "in": "body",
-            "description": "JSON with array of Photo Ids that will be deleted.",
+            "description": "JSON with array of Frame Ids that will be deleted.",
             "required": true,
             "schema": {
               "required": [
@@ -1845,7 +1907,7 @@
             "description": "WlItem successfully registered."
           },
           "400": {
-            "description": "Exactly one face expected on single photo"
+            "description": "Exactly one face expected on single Frame"
           }
         }
       }
@@ -2222,7 +2284,7 @@
             }
           },
           "400": {
-            "description": "At least one face expected on a photo"
+            "description": "At least one face expected on a Frame"
           }
         }
       }
@@ -2348,13 +2410,13 @@
         "deprecated": false
       }
     },
-    "/odata/Scopes(Id={id})/Photos": {
+    "/odata/Scopes(Id={id})/Frames": {
       "get": {
         "tags": [
           "odata/Scopes"
         ],
-        "summary": "Gets Photos that belong to specified Scope.",
-        "operationId": "Scopes_GetPhotosById",
+        "summary": "Gets Frames that belong to specified Scope.",
+        "operationId": "Scopes_GetFramesById",
         "consumes": [],
         "produces": [
           "application/json"
@@ -2424,7 +2486,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/ODataResponse[List[Photo]]"
+              "$ref": "#/definitions/ODataResponse[List[Frame]]"
             }
           }
         },
@@ -2597,6 +2659,127 @@
         "deprecated": false
       }
     },
+    "/odata/VisualObjects": {
+      "get": {
+        "tags": [
+          "odata/VisualObjects"
+        ],
+        "summary": "Gets list of all VisualObjects present on the server.",
+        "operationId": "VisualObjects_Get",
+        "consumes": [],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "Expands related entities inline.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "description": "Filters the results, based on a Boolean condition.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "Selects which properties to include in the response.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$orderby",
+            "in": "query",
+            "description": "Sorts the results.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$top",
+            "in": "query",
+            "description": "Returns only the first n results.",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "$skip",
+            "in": "query",
+            "description": "Skips the first n results.",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "$count",
+            "in": "query",
+            "description": "Includes a count of the matching results in the response.",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ODataResponse[List[VisualObject]]"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/odata/VisualObjects({Id})": {
+      "get": {
+        "tags": [
+          "odata/VisualObjects"
+        ],
+        "summary": "Gets the specified Face.",
+        "operationId": "VisualObjects_GetById",
+        "consumes": [],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "Id of Face which is requested.",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "Expands related entities inline.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "Selects which properties to include in the response.",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/VisualObject"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
     "/odata/Faces": {
       "get": {
         "tags": [
@@ -2718,13 +2901,13 @@
         "deprecated": false
       }
     },
-    "/odata/Persons": {
+    "/odata/Tracklets": {
       "get": {
         "tags": [
-          "odata/Persons"
+          "odata/Tracklets"
         ],
-        "summary": "Gets list of all persons on the server.",
-        "operationId": "Persons_Get",
+        "summary": "Gets list of all Tracklets on the server.",
+        "operationId": "Tracklets_Get",
         "consumes": [],
         "produces": [
           "application/json"
@@ -2786,20 +2969,20 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/ODataResponse[List[Person]]"
+              "$ref": "#/definitions/ODataResponse[List[Tracklet]]"
             }
           }
         },
         "deprecated": false
       }
     },
-    "/odata/Persons({Id})": {
+    "/odata/Tracklets({Id})": {
       "get": {
         "tags": [
-          "odata/Persons"
+          "odata/Tracklets"
         ],
-        "summary": "Gets the specified Person.",
-        "operationId": "Persons_GetById",
+        "summary": "Gets the specified Tracklet.",
+        "operationId": "Tracklets_GetById",
         "consumes": [],
         "produces": [
           "application/json"
@@ -2808,7 +2991,7 @@
           {
             "name": "Id",
             "in": "path",
-            "description": "Id of requested Person.",
+            "description": "Id of requested Tracklet.",
             "required": true,
             "type": "integer",
             "format": "int64"
@@ -2832,7 +3015,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Person"
+              "$ref": "#/definitions/Tracklet"
             }
           }
         },
@@ -2960,13 +3143,13 @@
         "deprecated": false
       }
     },
-    "/odata/Identities(Id={id})/Photos": {
+    "/odata/Identities(Id={id})/Frames": {
       "get": {
         "tags": [
           "odata/Identities"
         ],
-        "summary": "Gets the Photos that belong to specified Identity.",
-        "operationId": "Identities_GetPhotosById",
+        "summary": "Gets the Frames that belong to specified Identity.",
+        "operationId": "Identities_GetFramesById",
         "consumes": [],
         "produces": [
           "application/json"
@@ -3036,7 +3219,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/ODataResponse[List[Photo]]"
+              "$ref": "#/definitions/ODataResponse[List[Frame]]"
             }
           }
         },
@@ -3330,13 +3513,13 @@
         "deprecated": false
       }
     },
-    "/odata/Photos": {
+    "/odata/Frames": {
       "get": {
         "tags": [
-          "odata/Photos"
+          "odata/Frames"
         ],
-        "summary": "Gets list of all Photos present on the server.",
-        "operationId": "Photos_Get",
+        "summary": "Gets list of all Frames present on the server.",
+        "operationId": "Frames_Get",
         "consumes": [],
         "produces": [
           "application/json"
@@ -3398,20 +3581,20 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/ODataResponse[List[Photo]]"
+              "$ref": "#/definitions/ODataResponse[List[Frame]]"
             }
           }
         },
         "deprecated": false
       }
     },
-    "/odata/Photos({Id})": {
+    "/odata/Frames({Id})": {
       "get": {
         "tags": [
-          "odata/Photos"
+          "odata/Frames"
         ],
-        "summary": "Gets the specified Photo by Id.",
-        "operationId": "Photos_GetById",
+        "summary": "Gets the specified Frame by Id.",
+        "operationId": "Frames_GetById",
         "consumes": [],
         "produces": [
           "application/json"
@@ -3420,7 +3603,7 @@
           {
             "name": "Id",
             "in": "path",
-            "description": "Id of Photo that was requested.",
+            "description": "Id of Frame that was requested.",
             "required": true,
             "type": "integer",
             "format": "int64"
@@ -3444,20 +3627,20 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Photo"
+              "$ref": "#/definitions/Frame"
             }
           }
         },
         "deprecated": false
       }
     },
-    "/odata/Photos(Id={id})/Identities": {
+    "/odata/Frames(Id={id})/Identities": {
       "get": {
         "tags": [
-          "odata/Photos"
+          "odata/Frames"
         ],
-        "summary": "Gets Identities that belong to specified Photo.",
-        "operationId": "Photos_GetIdentitiesById",
+        "summary": "Gets Identities that belong to specified Frame.",
+        "operationId": "Frames_GetIdentitiesById",
         "consumes": [],
         "produces": [
           "application/json"
@@ -3466,7 +3649,7 @@
           {
             "name": "Id",
             "in": "path",
-            "description": "Id of Photo",
+            "description": "Id of Frame",
             "required": true,
             "type": "integer",
             "format": "int64"
@@ -3534,13 +3717,13 @@
         "deprecated": false
       }
     },
-    "/odata/Photos(Id={id})/Faces": {
+    "/odata/Frames(Id={id})/Faces": {
       "get": {
         "tags": [
-          "odata/Photos"
+          "odata/Frames"
         ],
-        "summary": "Gets Faces that belong to specified Photo.",
-        "operationId": "Photos_GetFacesById",
+        "summary": "Gets Faces that belong to specified Frame.",
+        "operationId": "Frames_GetFacesById",
         "consumes": [],
         "produces": [
           "application/json"
@@ -3549,7 +3732,7 @@
           {
             "name": "Id",
             "in": "path",
-            "description": "Id of Photo",
+            "description": "Id of Frame",
             "required": true,
             "type": "integer",
             "format": "int64"
@@ -4106,7 +4289,7 @@
     "DbCleanUpConfig": {
       "type": "object",
       "properties": {
-        "MaxPhotosCount": {
+        "MaxFramesCount": {
           "type": "integer",
           "format": "int64"
         },
@@ -4791,9 +4974,9 @@
         }
       }
     },
-    "Face": {
+    "VisualObject": {
       "required": [
-        "PersonId",
+        "TrackletId",
         "Quality",
         "State",
         "CreatedAt",
@@ -4805,12 +4988,114 @@
         "CropLeftBottomY",
         "CropRightBottomX",
         "CropRightBottomY",
-        "PhotoId",
+        "FrameId",
         "Id"
       ],
       "type": "object",
       "properties": {
-        "PersonId": {
+        "TrackletId": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "Quality": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Type": {
+          "enum": [
+            "Body",
+            "Face",
+            "Gun"
+          ],
+          "type": "string"
+        },
+        "ImageDataId": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "CreatedAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "UpdatedAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "ProcessedAt": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "CropLeftTopX": {
+          "format": "double",
+          "type": "number"
+        },
+        "CropLeftTopY": {
+          "format": "double",
+          "type": "number"
+        },
+        "CropRightTopX": {
+          "format": "double",
+          "type": "number"
+        },
+        "CropRightTopY": {
+          "format": "double",
+          "type": "number"
+        },
+        "CropLeftBottomX": {
+          "format": "double",
+          "type": "number"
+        },
+        "CropLeftBottomY": {
+          "format": "double",
+          "type": "number"
+        },
+        "CropRightBottomX": {
+          "format": "double",
+          "type": "number"
+        },
+        "CropRightBottomY": {
+          "format": "double",
+          "type": "number"
+        },
+        "FrameId": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "Id": {
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
+        },
+        "StreamId": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "ImageUrl": {
+          "type": "string"
+        }
+      }
+    },
+    "Face": {
+      "required": [
+        "TrackletId",
+        "Quality",
+        "State",
+        "CreatedAt",
+        "CropLeftTopX",
+        "CropLeftTopY",
+        "CropRightTopX",
+        "CropRightTopY",
+        "CropLeftBottomX",
+        "CropLeftBottomY",
+        "CropRightBottomX",
+        "CropRightBottomY",
+        "FrameId",
+        "Id"
+      ],
+      "type": "object",
+      "properties": {
+        "TrackletId": {
           "format": "int64",
           "type": "integer"
         },
@@ -4892,13 +5177,14 @@
           "format": "double",
           "type": "number"
         },
-        "PhotoId": {
+        "FrameId": {
           "format": "int64",
           "type": "integer"
         },
         "Id": {
-          "format": "int64",
-          "type": "integer"
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
         },
         "Age": {
           "format": "double",
@@ -4924,7 +5210,7 @@
         }
       }
     },
-    "Person": {
+    "Tracklet": {
       "required": [
         "ScopeId",
         "CreatedAt",
@@ -4958,12 +5244,13 @@
           "type": "integer"
         },
         "Id": {
-          "format": "int64",
-          "type": "integer"
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
         }
       }
     },
-    "Photo": {
+    "Frame": {
       "required": [
         "State",
         "ScopeId",
@@ -5007,8 +5294,9 @@
           "type": "string"
         },
         "Id": {
-          "format": "int64",
-          "type": "integer"
+          "format": "uuid",
+          "type": "string",
+          "example": "00000000-0000-0000-0000-000000000000"
         },
         "ImageUrl": {
           "type": "string"
@@ -5150,7 +5438,7 @@
       "required": [
         "Id",
         "CreatedAt",
-        "PersonId"
+        "TrackletId"
       ],
       "type": "object",
       "properties": {
@@ -5185,7 +5473,7 @@
           "type": "string",
           "readOnly": true
         },
-        "PersonId": {
+        "TrackletId": {
           "format": "int64",
           "type": "integer",
           "readOnly": true
@@ -5234,7 +5522,7 @@
         "IsDefault": {
           "type": "boolean"
         },
-        "LastProcessedPersonId": {
+        "LastProcessedTrackletId": {
           "format": "int64",
           "type": "integer"
         },
@@ -5327,7 +5615,7 @@
     },
     "Config": {
       "required": [
-        "Context",
+        "Context'",
         "Name",
         "Configuration",
         "CreatedAt"
@@ -5439,7 +5727,7 @@
         }
       }
     },
-    "ODataResponse[List[Photo]]": {
+    "ODataResponse[List[Frame]]": {
       "required": [],
       "type": "object",
       "properties": {
@@ -5449,7 +5737,7 @@
         "value": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Photo"
+            "$ref": "#/definitions/Frame"
           }
         }
       }
@@ -5469,7 +5757,7 @@
         }
       }
     },
-    "ODataResponse[List[Person]]": {
+    "ODataResponse[List[Tracklet]]": {
       "required": [],
       "type": "object",
       "properties": {
@@ -5479,13 +5767,13 @@
         "value": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Person"
+            "$ref": "#/definitions/Tracklet"
           }
         }
       }
     },
-    "PhotoData": {
-      "description": "Model of photo with data in it",
+    "FrameData": {
+      "description": "Model of Frame with data in it",
       "required": [
         "Data",
         "ScopeId"
@@ -5529,11 +5817,11 @@
       "properties": {
         "Id": {
           "format": "int64",
-          "description": "Id of not deleted photo, in case of error.",
+          "description": "Id of not deleted Frame, in case of error.",
           "type": "integer"
         },
         "OpResult": {
-          "description": "Reason why photo with Id could not be deleted.",
+          "description": "Reason why Frame with Id could not be deleted.",
           "enum": [
             "NotFound",
             "Error"
@@ -5625,8 +5913,8 @@
       "description": "Copy of ProgressMessageDTO",
       "required": [
         "ScopeId",
-        "NumNewPhotos",
-        "NumUnprocPhotos",
+        "NumNewFrames",
+        "NumUnprocFrames",
         "Status"
       ],
       "type": "object",
@@ -5636,14 +5924,14 @@
           "description": "Gets or sets the scope identifier.",
           "type": "integer"
         },
-        "NumNewPhotos": {
+        "NumNewFrames": {
           "format": "int32",
-          "description": "Gets or sets the number new photos.",
+          "description": "Gets or sets the number new Frames.",
           "type": "integer"
         },
-        "NumUnprocPhotos": {
+        "NumUnprocFrames": {
           "format": "int32",
-          "description": "Gets or sets the number unproc photos.",
+          "description": "Gets or sets the number unproc Frames.",
           "type": "integer"
         },
         "Status": {
@@ -5782,7 +6070,7 @@
         "StreamId",
         "Score",
         "CreatedAt",
-        "PersonId",
+        "TrackletId",
         "WatchlistFullName",
         "WatchlistDisplayName",
         "FaceId"
@@ -5820,7 +6108,7 @@
           "format": "date-time",
           "type": "string"
         },
-        "PersonId": {
+        "TrackletId": {
           "format": "int64",
           "type": "integer"
         },
