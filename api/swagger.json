@@ -990,13 +990,16 @@
               "type": "object",
               "properties": {
                 "ServiceName": {
-                  "type": "string"
+                  "type": "string",
+                  "example": "SmartFace_Camera_1"
                 },
                 "FullyQualifiedName": {
-                  "type": "string"
+                  "type": "string",
+                  "example": "SmartFace.Workers.VideoProcessing.StreamProcessing"
                 },
                 "Level": {
-                  "type": "string"
+                  "type": "string",
+                  "example": "DEBUG"
                 }
               }
             }
@@ -5586,7 +5589,8 @@
       "properties": {
         "VideoSource": {
           "description": "Camera video source.",
-          "type": "string"
+          "type": "string",
+          "example": "rtsp://video"
         },
         "Enable": {
           "description": "Value indicating whether this Camera workers should be enabled after creation.",
@@ -5594,7 +5598,8 @@
         },
         "StreamName": {
           "description": "Name of camera stream.",
-          "type": "string"
+          "type": "string",
+          "example": "Elevator camera 1"
         }
       }
     },
@@ -5983,23 +5988,27 @@
           "description": "Gets or sets the display name.",
           "maxLength": 200,
           "minLength": 0,
-          "type": "string"
+          "type": "string",
+          "example": "John C. Doe"
         },
         "FullName": {
           "description": "Gets or sets the full name.",
           "maxLength": 200,
           "minLength": 0,
-          "type": "string"
+          "type": "string",
+          "example": "John Clarke Doe"
         },
         "ExternalId": {
           "description": "Gets or sets the external identifier.",
           "maxLength": 100,
           "minLength": 0,
-          "type": "string"
+          "type": "string",
+          "example": "customer_4325989"
         },
         "Note": {
           "description": "Gets or sets the note.",
-          "type": "string"
+          "type": "string",
+          "example": "valuable client"
         }
       }
     },
@@ -6028,22 +6037,26 @@
       "properties": {
         "DisplayName": {
           "description": "DisplayName of Watchlist.",
-          "type": "string"
+          "type": "string",
+          "example": "VIP customers"
         },
         "FullName": {
           "description": "FullName of new Watchlist.",
-          "type": "string"
+          "type": "string",
+          "example": "Customers with gold membership"
         },
         "Threshold": {
           "format": "int32",
           "description": "Threshold of new Watchlist.",
           "maximum": 100,
           "minimum": 0,
-          "type": "integer"
+          "type": "integer",
+          "example": 40
         },
         "ExternalId": {
           "description": "Gets or sets the external identifier.",
-          "type": "string"
+          "type": "string",
+          "example": "clientList_gold"
         }
       }
     },
