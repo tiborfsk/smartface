@@ -1247,10 +1247,10 @@
         "deprecated": false
       }
     },
-    "/api/v1/Tracklets/{Id}'": {
+    "/api/v1/Appearances/Tracklets/{Id}'": {
       "get": {
         "tags": [
-          "api/v1/Tracklets"
+          "api/v1/Appearances/Tracklets"
         ],
         "summary": "Gets the specified Tracklet.",
         "operationId": "Tracklets_GetById",
@@ -1280,7 +1280,7 @@
       },
       "delete": {
         "tags": [
-          "api/v1/Tracklets"
+          "api/v1/Appearances/Tracklets"
         ],
         "summary": "Deletes the specified Tracklet.",
         "operationId": "Tracklets_DeleteById",
@@ -1309,10 +1309,10 @@
         "deprecated": false
       }
     },
-    "/api/v1/Identities/{Id}": {
+    "/api/v1/Appearances/Identities/{Id}": {
       "get": {
         "tags": [
-          "api/v1/Identities"
+          "api/v1/Appearances/Identities"
         ],
         "summary": "Gets the specified Identity.",
         "operationId": "Identities_GetById",
@@ -1342,7 +1342,7 @@
       },
       "delete": {
         "tags": [
-          "api/v1/Identities"
+          "api/v1/Appearances/Identities"
         ],
         "summary": "Deletes the specified identity.",
         "operationId": "Identities_DeleteById",
@@ -1372,7 +1372,7 @@
       },
       "patch": {
         "tags": [
-          "api/v1/Identities"
+          "api/v1/Appearances/Identities"
         ],
         "summary": "Updates the specified Identity.",
         "description": "Currently only allows to update Hidden property.",
@@ -1413,10 +1413,10 @@
         "deprecated": false
       }
     },
-    "/api/v1/Identities/Split": {
+    "/api/v1/Appearances/Identities/Split": {
       "post": {
         "tags": [
-          "api/v1/Identities"
+          "api/v1/Appearances/Identities"
         ],
         "summary": "Splits the specified parameters.",
         "description": "Splits requested Tracklets from provided Identity into new Identity. Newly created Identity Id will be returned in response.",
@@ -1466,10 +1466,10 @@
         "deprecated": false
       }
     },
-    "/api/v1/Identities/Merge": {
+    "/api/v1/Appearances/Identities/Merge": {
       "post": {
         "tags": [
-          "api/v1/Identities"
+          "api/v1/Appearances/Identities"
         ],
         "summary": "Merges the specified Identities.",
         "description": "Merge provided Identities into single Identity. Id of first Identity Id will be used as merged Identity Id.",
@@ -1514,10 +1514,10 @@
         "deprecated": false
       }
     },
-    "/api/v1/Identities/Search": {
+    "/api/v1/Appearances/Identities/Search": {
       "post": {
         "tags": [
-          "api/v1/Identities"
+          "api/v1/Appearances/Identities"
         ],
         "summary": "Searches Identities by specified Frame.",
         "description": "Search will be performed on all Identities in specified Grouping or Scope, using all of their Faces. Uploaded Frame should contain only one face.",
@@ -1737,13 +1737,13 @@
         "deprecated": false
       }
     },
-    "/api/v1/WatchlistItems": {
+    "/api/v1/WatchlistMembers": {
       "post": {
         "tags": [
-          "api/v1/WatchlistItems"
+          "api/v1/WatchlistMembers"
         ],
-        "summary": "Creates new WatchlistItem entity with provided data.",
-        "operationId": "WatchlistItems_Post",
+        "summary": "Creates new WatchlistMember entity with provided data.",
+        "operationId": "WatchlistMembers_Post",
         "consumes": [
           "application/json"
         ],
@@ -1752,12 +1752,12 @@
         ],
         "parameters": [
           {
-            "name": "WlItem",
+            "name": "WatchlistMember",
             "in": "body",
             "description": "The entity to post",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/WatchlistItemCreateData"
+              "$ref": "#/definitions/WatchlistMemberCreateData"
             }
           }
         ],
@@ -1765,20 +1765,20 @@
           "201": {
             "description": "Created",
             "schema": {
-              "$ref": "#/definitions/WlItem"
+              "$ref": "#/definitions/WatchlistMember"
             }
           }
         },
         "deprecated": false
       }
     },
-    "/api/v1/WatchlistItems/{Id}": {
+    "/api/v1/WatchlistMembers/{Id}": {
       "get": {
         "tags": [
-          "api/v1/WatchlistItems"
+          "api/v1/WatchlistMembers"
         ],
-        "summary": "Gets the specified WatchlistItem by Id.",
-        "operationId": "WatchlistItems_GetById",
+        "summary": "Gets the specified WatchlistMember by Id.",
+        "operationId": "WatchlistMembers_GetById",
         "consumes": [],
         "produces": [
           "application/json"
@@ -1787,7 +1787,7 @@
           {
             "name": "Id",
             "in": "path",
-            "description": "Id of WatchlistItem that was requested.",
+            "description": "Id of WatchlistMember that was requested.",
             "required": true,
             "type": "integer",
             "format": "int64"
@@ -1797,7 +1797,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/WlItem"
+              "$ref": "#/definitions/WatchlistMember"
             }
           }
         },
@@ -1805,10 +1805,10 @@
       },
       "delete": {
         "tags": [
-          "api/v1/WatchlistItems"
+          "api/v1/WatchlistMembers"
         ],
-        "summary": "Deletes the specified WatchlistItem.",
-        "operationId": "WatchlistItems_DeleteById",
+        "summary": "Deletes the specified WatchlistMember.",
+        "operationId": "WatchlistMembers_DeleteById",
         "consumes": [],
         "produces": [
           "application/json"
@@ -1817,7 +1817,7 @@
           {
             "name": "Id",
             "in": "path",
-            "description": "Id of WatchlistItem that will be deleted.",
+            "description": "Id of WatchlistMember that will be deleted.",
             "required": true,
             "type": "integer",
             "format": "int64"
@@ -1835,10 +1835,10 @@
       },
       "patch": {
         "tags": [
-          "api/v1/WatchlistItems"
+          "api/v1/WatchlistMembers"
         ],
-        "summary": "Updates specified WatchlistItem.",
-        "operationId": "WatchlistItems_PatchById",
+        "summary": "Updates specified WatchlistMember.",
+        "operationId": "WatchlistMembers_PatchById",
         "consumes": [
           "application/json"
         ],
@@ -1855,12 +1855,12 @@
             "format": "int64"
           },
           {
-            "name": "WlItem",
+            "name": "WatchlistMember",
             "in": "body",
             "description": "The entity to patch",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/WlItem"
+              "$ref": "#/definitions/WatchlistMember"
             }
           }
         ],
@@ -1875,13 +1875,13 @@
         "deprecated": false
       }
     },
-    "/api/v1/WatchlistItems/Register": {
+    "/api/v1/WatchlistMembers/Register": {
       "post": {
         "tags": [
-          "api/v1/WatchlistItems"
+          "api/v1/WatchlistMembers"
         ],
-        "summary": "Create or replace WlItem with provided data in payload.",
-        "operationId": "WatchlistItemsRpc_RegisterAsync",
+        "summary": "Create or replace WatchlistMember with provided data in payload.",
+        "operationId": "WatchlistMembersRpc_RegisterAsync",
         "consumes": [
           "application/json"
         ],
@@ -1898,16 +1898,16 @@
           {
             "name": "Payload",
             "in": "body",
-            "description": "JSON with WatchlistItem ExternalId (if item does not exist then it will be created), </br>\nImageData with base64 encoded images of single face with MIME type, <br>\nWatchlist ExternalIds which will be linked to WatchlistItem (if watchlists do not exists then they will be created with default threshold).",
+            "description": "JSON with WatchlistMember ExternalId (if item does not exist then it will be created), </br>\nImageData with base64 encoded images of single face with MIME type, <br>\nWatchlist ExternalIds which will be linked to WatchlistMember (if watchlists do not exists then they will be created with default threshold).",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/RegisterWlItemData"
+              "$ref": "#/definitions/RegisterWatchlistMemberData"
             }
           }
         ],
         "responses": {
           "204": {
-            "description": "WlItem successfully registered."
+            "description": "WatchlistMember successfully registered."
           },
           "400": {
             "description": "Exactly one face expected on single Frame"
@@ -1915,13 +1915,13 @@
         }
       }
     },
-    "/api/v1/WatchlistItems/AddExistingFace": {
+    "/api/v1/WatchlistMembers/AddExistingFace": {
       "post": {
         "tags": [
-          "api/v1/WatchlistItems"
+          "api/v1/WatchlistMembers"
         ],
-        "summary": "Creates copy of Face entity by FaceId and this Face will be linked to WatchlistItem by WatchlistItemId.",
-        "operationId": "WatchlistItemsRpc_AddExistingFace",
+        "summary": "Creates copy of Face entity by FaceId and this Face will be linked to WatchlistMember by WatchlistMemberId.",
+        "operationId": "WatchlistMembersRpc_AddExistingFace",
         "consumes": [
           "application/json"
         ],
@@ -1938,22 +1938,22 @@
           {
             "name": "Payload",
             "in": "body",
-            "description": "JSON with FaceId and WatchlistItemId.",
+            "description": "JSON with FaceId and WatchlistMemberId.",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/AddExistingFaceToWlItemData"
+              "$ref": "#/definitions/AddExistingFaceToWatchlistMemberData"
             }
           }
         ],
         "responses": {
           "204": {
-            "description": "Creates copy of Face entity by FaceId and this Face will be linked to WatchlistItem by WatchlistItemId."
+            "description": "Creates copy of Face entity by FaceId and this Face will be linked to WatchlistMember by WatchlistMemberId."
           },
           "400": {
-            "description": "FaceId is already linked to WlItem."
+            "description": "FaceId is already linked to WatchlistMember."
           },
           "404": {
-            "description": "FaceId or WatchlistItemId does not exists."
+            "description": "FaceId or WatchlistMemberId does not exists."
           },
           "409": {
             "description": "Face is not extracted yet or some blob data is missing."
@@ -1961,13 +1961,13 @@
         }
       }
     },
-    "/api/v1/WatchlistItems/RemoveFace": {
+    "/api/v1/WatchlistMembers/RemoveFace": {
       "post": {
         "tags": [
-          "api/v1/WatchlistItems"
+          "api/v1/WatchlistMembers"
         ],
-        "summary": "Remove Face from WatchlistItem specified by FaceId and WatchlistItemId.",
-        "operationId": "WatchlistItemsRpc_RemoveFace",
+        "summary": "Remove Face from WatchlistMember specified by FaceId and WatchlistMemberId.",
+        "operationId": "WatchlistMembersRpc_RemoveFace",
         "consumes": [
           "application/json"
         ],
@@ -1984,33 +1984,33 @@
           {
             "name": "Payload",
             "in": "body",
-            "description": "JSON with FaceId and WatchlistItemId.",
+            "description": "JSON with FaceId and WatchlistMemberId.",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/RemoveExistingFaceFromWlItemData"
+              "$ref": "#/definitions/RemoveExistingFaceFromWatchlistMemberData"
             }
           }
         ],
         "responses": {
           "204": {
-            "description": "Remove Face from WatchlistItem specified by FaceId and WatchlistItemId."
+            "description": "Remove Face from WatchlistMember specified by FaceId and WatchlistMemberId."
           },
           "400": {
-            "description": "Face with is not linked to WlItem."
+            "description": "Face with is not linked to WatchlistMember."
           },
           "404": {
-            "description": "FaceId or WatchlistItemId does not exists."
+            "description": "FaceId or WatchlistMemberId does not exists."
           }
         }
       }
     },
-    "/api/v1/WatchlistItems/LinkToWatchlist": {
+    "/api/v1/WatchlistMembers/LinkToWatchlist": {
       "post": {
         "tags": [
-          "api/v1/WatchlistItems"
+          "api/v1/WatchlistMembers"
         ],
         "summary": "Links to watchlist.",
-        "operationId": "WatchlistItems_LinkToWatchlist",
+        "operationId": "WatchlistMembers_LinkToWatchlist",
         "consumes": [
           "application/json"
         ],
@@ -2021,16 +2021,16 @@
           {
             "name": "Payload",
             "in": "body",
-            "description": "JSON with WatchlistItem Ids and Watchlist Id that this WatchlistItems will be linked to.",
+            "description": "JSON with WatchlistMember Ids and Watchlist Id that this WatchlistMembers will be linked to.",
             "required": true,
             "schema": {
               "required": [
-                "WlItemIds",
+                "WatchlistMemberIds",
                 "WatchlistId"
               ],
               "type": "object",
               "properties": {
-                "WlItemIds": {
+                "WatchlistMemberIds": {
                   "type": "array",
                   "items": {
                     "format": "int64",
@@ -2047,19 +2047,19 @@
         ],
         "responses": {
           "200": {
-            "description": "Link WatchlistItem to Watchlists."
+            "description": "Link WatchlistMember to Watchlists."
           }
         },
         "deprecated": false
       }
     },
-    "/api/v1/WatchlistItems/UnlinkFromWatchlist": {
+    "/api/v1/WatchlistMembers/UnlinkFromWatchlist": {
       "post": {
         "tags": [
-          "api/v1/WatchlistItems"
+          "api/v1/WatchlistMembers"
         ],
-        "summary": "Unlink WatchlistItems from watchlist.",
-        "operationId": "WatchlistItems_UnlinkFromWatchlist",
+        "summary": "Unlink WatchlistMembers from watchlist.",
+        "operationId": "WatchlistMembers_UnlinkFromWatchlist",
         "consumes": [
           "application/json"
         ],
@@ -2070,16 +2070,16 @@
           {
             "name": "Payload",
             "in": "body",
-            "description": "JSON with WatchlistItem Ids and Watchlist Id from which WatchlistItems will be unlinked.",
+            "description": "JSON with WatchlistMember Ids and Watchlist Id from which WatchlistMembers will be unlinked.",
             "required": true,
             "schema": {
               "required": [
-                "WlItemIds",
+                "WatchlistMemberIds",
                 "WatchlistId"
               ],
               "type": "object",
               "properties": {
-                "WlItemIds": {
+                "WatchlistMemberIds": {
                   "type": "array",
                   "items": {
                     "format": "int64",
@@ -2096,10 +2096,62 @@
         ],
         "responses": {
           "200": {
-            "description": "Unlink WatchlistItem from Watchlists."
+            "description": "Unlink WatchlistMember from Watchlists."
           }
         },
         "deprecated": false
+      }
+    },
+    "/api/v1/WatchlistMembers/Search": {
+      "post": {
+        "tags": [
+          "api/v1/WatchlistMembers"
+        ],
+        "summary": "Search Image in WatchlistMembers",
+        "operationId": "WatchlistMembersRpc_SearchAsync",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded",
+          "multipart/form-data",
+          "application/octet-stream"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded",
+          "multipart/form-data",
+          "application/octet-stream"
+        ],
+        "parameters": [
+          {
+            "name": "Payload",
+            "in": "body",
+            "description": "JSON with image data and search parameters",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SearchByImageData"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/SearchByImageResponse"
+              }
+            }
+          },
+          "400": {
+            "description": "At least one face expected on a Frame"
+          }
+        }
       }
     },
     "/api/v1/Watchlists": {
@@ -2238,58 +2290,6 @@
           }
         },
         "deprecated": false
-      }
-    },
-    "/api/v1/Watchlists/Search": {
-      "post": {
-        "tags": [
-          "api/v1/Watchlists"
-        ],
-        "summary": "Search Image in Watchlists",
-        "operationId": "WatchlistsRpc_SearchAsync",
-        "consumes": [
-          "application/json",
-          "text/json",
-          "application/xml",
-          "text/xml",
-          "application/x-www-form-urlencoded",
-          "multipart/form-data",
-          "application/octet-stream"
-        ],
-        "produces": [
-          "application/json",
-          "text/json",
-          "application/xml",
-          "text/xml",
-          "application/x-www-form-urlencoded",
-          "multipart/form-data",
-          "application/octet-stream"
-        ],
-        "parameters": [
-          {
-            "name": "Payload",
-            "in": "body",
-            "description": "JSON with image data and search parameters",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/SearchByImageData"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/SearchByImageResponse"
-              }
-            }
-          },
-          "400": {
-            "description": "At least one face expected on a Frame"
-          }
-        }
       }
     },
     "/odata/Scopes": {
@@ -3924,13 +3924,13 @@
         "deprecated": false
       }
     },
-    "/odata/WatchlistItems": {
+    "/odata/WatchlistMembers": {
       "get": {
         "tags": [
-          "odata/WatchlistItems"
+          "odata/WatchlistMembers"
         ],
-        "summary": "Gets list of all WatchlistItems present on the server.",
-        "operationId": "WatchlistItems_Get",
+        "summary": "Gets list of all WatchlistMembers present on the server.",
+        "operationId": "WatchlistMembers_Get",
         "consumes": [],
         "produces": [
           "application/json"
@@ -3992,20 +3992,20 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/ODataResponse[List[WlItem]]"
+              "$ref": "#/definitions/ODataResponse[List[WatchlistMember]]"
             }
           }
         },
         "deprecated": false
       }
     },
-    "/odata/WatchlistItems({Id})": {
+    "/odata/WatchlistMembers({Id})": {
       "get": {
         "tags": [
-          "odata/WatchlistItems"
+          "odata/WatchlistMembers"
         ],
-        "summary": "Gets the specified WatchlistItem by Id.",
-        "operationId": "WatchlistItems_GetById",
+        "summary": "Gets the specified WatchlistMember by Id.",
+        "operationId": "WatchlistMembers_GetById",
         "consumes": [],
         "produces": [
           "application/json"
@@ -4014,7 +4014,7 @@
           {
             "name": "Id",
             "in": "path",
-            "description": "Id of WatchlistItem that was requested.",
+            "description": "Id of WatchlistMember that was requested.",
             "required": true,
             "type": "integer",
             "format": "int64"
@@ -4038,7 +4038,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/WlItem"
+              "$ref": "#/definitions/WatchlistMember"
             }
           }
         },
@@ -4602,7 +4602,7 @@
         }
       }
     },
-    "RegisterWlItemData": {
+    "RegisterWatchlistMemberData": {
       "required": [
         "ExternalId",
         "ImageData",
@@ -4616,7 +4616,7 @@
         "ImageData": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/RegisterWlItemImageData"
+            "$ref": "#/definitions/RegisterWatchlistMemberImageData"
           }
         },
         "WatchlistExternalIds": {
@@ -4627,7 +4627,7 @@
         }
       }
     },
-    "RegisterWlItemImageData": {
+    "RegisterWatchlistMemberImageData": {
       "required": [
         "Data",
         "MIME"
@@ -4644,11 +4644,11 @@
         }
       }
     },
-    "AddExistingFaceToWlItemData": {
-      "description": "Data required for adding cloned face to WatchlistItem.",
+    "AddExistingFaceToWatchlistMemberData": {
+      "description": "Data required for adding cloned face to WatchlistMember.",
       "required": [
         "FaceId",
-        "WatchlistItemId"
+        "WatchlistMemberId"
       ],
       "type": "object",
       "properties": {
@@ -4657,18 +4657,18 @@
           "description": "FaceId to clone.",
           "type": "integer"
         },
-        "WatchlistItemId": {
+        "WatchlistMemberId": {
           "format": "int64",
-          "description": "WatchlistItem Id that cloned face will be linked to.",
+          "description": "WatchlistMember Id that cloned face will be linked to.",
           "type": "integer"
         }
       }
     },
-    "RemoveExistingFaceFromWlItemData": {
-      "description": "Data required for removing face from WatchlistItem.",
+    "RemoveExistingFaceFromWatchlistMemberData": {
+      "description": "Data required for removing face from WatchlistMember.",
       "required": [
         "FaceId",
-        "WatchlistItemId"
+        "WatchlistMemberId"
       ],
       "type": "object",
       "properties": {
@@ -4677,9 +4677,9 @@
           "description": "FaceId to remove.",
           "type": "integer"
         },
-        "WatchlistItemId": {
+        "WatchlistMemberId": {
           "format": "int64",
-          "description": "WatchlistItem Id that face should be removed from.",
+          "description": "WatchlistMember Id that face should be removed from.",
           "type": "integer"
         }
       }
@@ -4814,7 +4814,7 @@
           "format": "int32",
           "type": "integer"
         },
-        "WlItemId": {
+        "WatchlistMemberId": {
           "format": "int64",
           "type": "integer"
         },
@@ -5437,7 +5437,7 @@
         }
       }
     },
-    "WlItem": {
+    "WatchlistMember": {
       "required": [
         "Id",
         "CreatedAt",
@@ -5964,7 +5964,7 @@
         }
       }
     },
-    "ODataResponse[List[WlItem]]": {
+    "ODataResponse[List[WatchlistMember]]": {
       "required": [],
       "type": "object",
       "properties": {
@@ -5974,13 +5974,13 @@
         "value": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/WlItem"
+            "$ref": "#/definitions/WatchlistMember"
           }
         }
       }
     },
-    "WatchlistItemCreateData": {
-      "description": "Model for creation of new WlItem.",
+    "WatchlistMemberCreateData": {
+      "description": "Model for creation of new WatchlistMember.",
       "required": [],
       "type": "object",
       "properties": {
@@ -6079,7 +6079,7 @@
       "required": [
         "Id",
         "WatchlistId",
-        "WlItemId",
+        "WatchlistMemberId",
         "StreamId",
         "Score",
         "CreatedAt",
@@ -6098,11 +6098,11 @@
           "format": "int64",
           "type": "integer"
         },
-        "WlItemId": {
+        "WatchlistMemberId": {
           "format": "int64",
           "type": "integer"
         },
-        "WlItemExternalId": {
+        "WatchlistMemberExternalId": {
           "type": "string"
         },
         "StreamId": {
@@ -6125,10 +6125,10 @@
           "format": "int64",
           "type": "integer"
         },
-        "WlItemFullName": {
+        "WatchlistMemberFullName": {
           "type": "string"
         },
-        "WlItemDisplayName": {
+        "WatchlistMemberDisplayName": {
           "type": "string"
         },
         "WatchlistFullName": {
