@@ -1224,12 +1224,12 @@ paths:
           description: Not found
       deprecated: false
 
-  /api/v1/WatchlistItems:
+  /api/v1/WatchlistMembers:
     post:
       tags:
-        - api/v1/WatchlistItems
-      summary: Creates new WatchlistItem entity with provided data.
-      operationId: WatchlistItems_Post
+        - api/v1/WatchlistMembers
+      summary: Creates new WatchlistMember entity with provided data.
+      operationId: WatchlistMembers_Post
       consumes:
         - application/json
       produces:
@@ -1240,26 +1240,26 @@ paths:
           description: The entity to post
           required: true
           schema:
-            $ref: '#/definitions/WatchlistItemCreateData'
+            $ref: '#/definitions/WatchlistMemberCreateData'
       responses:
         '201':
           description: Created
           schema:
             $ref: '#/definitions/WatchlistMember'
       deprecated: false
-  /api/v1/WatchlistItems/{Id}:
+  /api/v1/WatchlistMembers/{Id}:
     get:
       tags:
-        - api/v1/WatchlistItems
-      summary: Gets the specified WatchlistItem by Id.
-      operationId: WatchlistItems_GetById
+        - api/v1/WatchlistMembers
+      summary: Gets the specified WatchlistMember by Id.
+      operationId: WatchlistMembers_GetById
       consumes: []
       produces:
         - application/json
       parameters:
         - name: Id
           in: path
-          description: Id of WatchlistItem that was requested.
+          description: Id of WatchlistMember that was requested.
           required: true
           type: integer
           format: int64
@@ -1271,16 +1271,16 @@ paths:
       deprecated: false
     delete:
       tags:
-        - api/v1/WatchlistItems
-      summary: Deletes the specified WatchlistItem.
-      operationId: WatchlistItems_DeleteById
+        - api/v1/WatchlistMembers
+      summary: Deletes the specified WatchlistMember.
+      operationId: WatchlistMembers_DeleteById
       consumes: []
       produces:
         - application/json
       parameters:
         - name: Id
           in: path
-          description: Id of WatchlistItem that will be deleted.
+          description: Id of WatchlistMember that will be deleted.
           required: true
           type: integer
           format: int64
@@ -1292,9 +1292,9 @@ paths:
       deprecated: false
     patch:
       tags:
-        - api/v1/WatchlistItems
-      summary: Updates specified WatchlistItem.
-      operationId: WatchlistItems_PatchById
+        - api/v1/WatchlistMembers
+      summary: Updates specified WatchlistMember.
+      operationId: WatchlistMembers_PatchById
       consumes:
         - application/json
       produces:
@@ -1318,12 +1318,12 @@ paths:
           schema:
             type: object
       deprecated: false
-  /api/v1/WatchlistItems/Register:
+  /api/v1/WatchlistMembers/Register:
     post:
       tags:
-        - api/v1/WatchlistItems
+        - api/v1/WatchlistMembers
       summary: Create or replace WatchlistMember with provided data in payload.
-      operationId: WatchlistItemsRpc_RegisterAsync
+      operationId: WatchlistMembersRpc_RegisterAsync
       consumes:
         - application/json
       produces:
@@ -1338,13 +1338,13 @@ paths:
         - name: Payload
           in: body
           description: >-
-            JSON with WatchlistItem ExternalId (if item does not exist then it
+            JSON with WatchlistMember ExternalId (if item does not exist then it
             will be created), </br>
 
             ImageData with base64 encoded images of single face with MIME type,
             <br>
 
-            Watchlist ExternalIds which will be linked to WatchlistItem (if
+            Watchlist ExternalIds which will be linked to WatchlistMember (if
             watchlists do not exists then they will be created with default
             threshold).
           required: true
@@ -1355,14 +1355,14 @@ paths:
           description: WatchlistMember successfully registered.
         '400':
           description: Exactly one face expected on single Frame
-  /api/v1/WatchlistItems/AddExistingFace:
+  /api/v1/WatchlistMembers/AddExistingFace:
     post:
       tags:
-        - api/v1/WatchlistItems
+        - api/v1/WatchlistMembers
       summary: >-
         Creates copy of Face entity by FaceId and this Face will be linked to
-        WatchlistItem by WatchlistItemId.
-      operationId: WatchlistItemsRpc_AddExistingFace
+        WatchlistMember by WatchlistMemberId.
+      operationId: WatchlistMembersRpc_AddExistingFace
       consumes:
         - application/json
       produces:
@@ -1376,7 +1376,7 @@ paths:
       parameters:
         - name: Payload
           in: body
-          description: JSON with FaceId and WatchlistItemId.
+          description: JSON with FaceId and WatchlistMemberId.
           required: true
           schema:
             $ref: '#/definitions/AddExistingFaceToWatchlistMemberData'
@@ -1384,19 +1384,19 @@ paths:
         '204':
           description: >-
             Creates copy of Face entity by FaceId and this Face will be linked
-            to WatchlistItem by WatchlistItemId.
+            to WatchlistMember by WatchlistMemberId.
         '400':
           description: FaceId is already linked to WatchlistMember.
         '404':
-          description: FaceId or WatchlistItemId does not exists.
+          description: FaceId or WatchlistMemberId does not exists.
         '409':
           description: Face is not extracted yet or some blob data is missing.
-  /api/v1/WatchlistItems/RemoveFace:
+  /api/v1/WatchlistMembers/RemoveFace:
     post:
       tags:
-        - api/v1/WatchlistItems
-      summary: Remove Face from WatchlistItem specified by FaceId and WatchlistItemId.
-      operationId: WatchlistItemsRpc_RemoveFace
+        - api/v1/WatchlistMembers
+      summary: Remove Face from WatchlistMember specified by FaceId and WatchlistMemberId.
+      operationId: WatchlistMembersRpc_RemoveFace
       consumes:
         - application/json
       produces:
@@ -1410,25 +1410,25 @@ paths:
       parameters:
         - name: Payload
           in: body
-          description: JSON with FaceId and WatchlistItemId.
+          description: JSON with FaceId and WatchlistMemberId.
           required: true
           schema:
             $ref: '#/definitions/RemoveExistingFaceFromWatchlistMemberData'
       responses:
         '204':
           description: >-
-            Remove Face from WatchlistItem specified by FaceId and
-            WatchlistItemId.
+            Remove Face from WatchlistMember specified by FaceId and
+            WatchlistMemberId.
         '400':
           description: Face with is not linked to WatchlistMember.
         '404':
-          description: FaceId or WatchlistItemId does not exists.
-  /api/v1/WatchlistItems/LinkToWatchlist:
+          description: FaceId or WatchlistMemberId does not exists.
+  /api/v1/WatchlistMembers/LinkToWatchlist:
     post:
       tags:
-        - api/v1/WatchlistItems
+        - api/v1/WatchlistMembers
       summary: Links to watchlist.
-      operationId: WatchlistItems_LinkToWatchlist
+      operationId: WatchlistMembers_LinkToWatchlist
       consumes:
         - application/json
       produces:
@@ -1437,8 +1437,8 @@ paths:
         - name: Payload
           in: body
           description: >-
-            JSON with WatchlistItem Ids and Watchlist Id that this
-            WatchlistItems will be linked to.
+            JSON with WatchlistMember Ids and Watchlist Id that this
+            WatchlistMembers will be linked to.
           required: true
           schema:
             required:
@@ -1456,14 +1456,14 @@ paths:
                 type: integer
       responses:
         '200':
-          description: Link WatchlistItem to Watchlists.
+          description: Link WatchlistMember to Watchlists.
       deprecated: false
-  /api/v1/WatchlistItems/UnlinkFromWatchlist:
+  /api/v1/WatchlistMembers/UnlinkFromWatchlist:
     post:
       tags:
-        - api/v1/WatchlistItems
-      summary: Unlink WatchlistItems from watchlist.
-      operationId: WatchlistItems_UnlinkFromWatchlist
+        - api/v1/WatchlistMembers
+      summary: Unlink WatchlistMembers from watchlist.
+      operationId: WatchlistMembers_UnlinkFromWatchlist
       consumes:
         - application/json
       produces:
@@ -1472,8 +1472,8 @@ paths:
         - name: Payload
           in: body
           description: >-
-            JSON with WatchlistItem Ids and Watchlist Id from which
-            WatchlistItems will be unlinked.
+            JSON with WatchlistMember Ids and Watchlist Id from which
+            WatchlistMembers will be unlinked.
           required: true
           schema:
             required:
@@ -1491,14 +1491,14 @@ paths:
                 type: integer
       responses:
         '200':
-          description: Unlink WatchlistItem from Watchlists.
+          description: Unlink WatchlistMember from Watchlists.
       deprecated: false
-  /api/v1/WatchlistItems/Search:
+  /api/v1/WatchlistMembers/Search:
     post:
       tags:
-        - api/v1/WatchlistItems
-      summary: Search Image in WatchlistItems
-      operationId: WatchlistItemsRpc_SearchAsync
+        - api/v1/WatchlistMembers
+      summary: Search Image in WatchlistMembers
+      operationId: WatchlistMembersRpc_SearchAsync
       consumes:
         - application/json
         - text/json
@@ -2789,12 +2789,12 @@ paths:
             $ref: '#/definitions/Stream'
       deprecated: false
       
-  /odata/WatchlistItems:
+  /odata/WatchlistMembers:
     get:
       tags:
-        - odata/WatchlistItems
-      summary: Gets list of all WatchlistItems present on the server.
-      operationId: WatchlistItems_Get
+        - odata/WatchlistMembers
+      summary: Gets list of all WatchlistMembers present on the server.
+      operationId: WatchlistMembers_Get
       consumes: []
       produces:
         - application/json
@@ -2842,19 +2842,19 @@ paths:
           schema:
             $ref: '#/definitions/ODataResponse[List[WatchlistMember]]'
       deprecated: false
-  '/odata/WatchlistItems({Id})':
+  '/odata/WatchlistMembers({Id})':
     get:
       tags:
-        - odata/WatchlistItems
-      summary: Gets the specified WatchlistItem by Id.
-      operationId: WatchlistItems_GetById
+        - odata/WatchlistMembers
+      summary: Gets the specified WatchlistMember by Id.
+      operationId: WatchlistMembers_GetById
       consumes: []
       produces:
         - application/json
       parameters:
         - name: Id
           in: path
-          description: Id of WatchlistItem that was requested.
+          description: Id of WatchlistMember that was requested.
           required: true
           type: integer
           format: int64
@@ -3313,34 +3313,34 @@ definitions:
         pattern: image\/(png|jpeg)
         type: string
   AddExistingFaceToWatchlistMemberData:
-    description: Data required for adding cloned face to WatchlistItem.
+    description: Data required for adding cloned face to WatchlistMember.
     required:
       - FaceId
-      - WatchlistItemId
+      - WatchlistMemberId
     type: object
     properties:
       FaceId:
         format: int64
         description: FaceId to clone.
         type: integer
-      WatchlistItemId:
+      WatchlistMemberId:
         format: int64
-        description: WatchlistItem Id that cloned face will be linked to.
+        description: WatchlistMember Id that cloned face will be linked to.
         type: integer
   RemoveExistingFaceFromWatchlistMemberData:
-    description: Data required for removing face from WatchlistItem.
+    description: Data required for removing face from WatchlistMember.
     required:
       - FaceId
-      - WatchlistItemId
+      - WatchlistMemberId
     type: object
     properties:
       FaceId:
         format: int64
         description: FaceId to remove.
         type: integer
-      WatchlistItemId:
+      WatchlistMemberId:
         format: int64
-        description: WatchlistItem Id that face should be removed from.
+        description: WatchlistMember Id that face should be removed from.
         type: integer
   SearchByImageData:
     required:
@@ -4306,7 +4306,7 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/WatchlistMember'
-  WatchlistItemCreateData:
+  WatchlistMemberCreateData:
     description: Model for creation of new WatchlistMember.
     required: []
     type: object
