@@ -1235,7 +1235,7 @@ paths:
       produces:
         - application/json
       parameters:
-        - name: WlItem
+        - name: WatchlistMember
           in: body
           description: The entity to post
           required: true
@@ -1245,7 +1245,7 @@ paths:
         '201':
           description: Created
           schema:
-            $ref: '#/definitions/WlItem'
+            $ref: '#/definitions/WatchlistMember'
       deprecated: false
   /api/v1/WatchlistItems/{Id}:
     get:
@@ -1267,7 +1267,7 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/WlItem'
+            $ref: '#/definitions/WatchlistMember'
       deprecated: false
     delete:
       tags:
@@ -1306,12 +1306,12 @@ paths:
           required: true
           type: integer
           format: int64
-        - name: WlItem
+        - name: WatchlistMember
           in: body
           description: The entity to patch
           required: true
           schema:
-            $ref: '#/definitions/WlItem'
+            $ref: '#/definitions/WatchlistMember'
       responses:
         '200':
           description: OK
@@ -1322,7 +1322,7 @@ paths:
     post:
       tags:
         - api/v1/WatchlistItems
-      summary: Create or replace WlItem with provided data in payload.
+      summary: Create or replace WatchlistMember with provided data in payload.
       operationId: WatchlistItemsRpc_RegisterAsync
       consumes:
         - application/json
@@ -1349,10 +1349,10 @@ paths:
             threshold).
           required: true
           schema:
-            $ref: '#/definitions/RegisterWlItemData'
+            $ref: '#/definitions/RegisterWatchlistMemberData'
       responses:
         '204':
-          description: WlItem successfully registered.
+          description: WatchlistMember successfully registered.
         '400':
           description: Exactly one face expected on single Frame
   /api/v1/WatchlistItems/AddExistingFace:
@@ -1379,14 +1379,14 @@ paths:
           description: JSON with FaceId and WatchlistItemId.
           required: true
           schema:
-            $ref: '#/definitions/AddExistingFaceToWlItemData'
+            $ref: '#/definitions/AddExistingFaceToWatchlistMemberData'
       responses:
         '204':
           description: >-
             Creates copy of Face entity by FaceId and this Face will be linked
             to WatchlistItem by WatchlistItemId.
         '400':
-          description: FaceId is already linked to WlItem.
+          description: FaceId is already linked to WatchlistMember.
         '404':
           description: FaceId or WatchlistItemId does not exists.
         '409':
@@ -1413,14 +1413,14 @@ paths:
           description: JSON with FaceId and WatchlistItemId.
           required: true
           schema:
-            $ref: '#/definitions/RemoveExistingFaceFromWlItemData'
+            $ref: '#/definitions/RemoveExistingFaceFromWatchlistMemberData'
       responses:
         '204':
           description: >-
             Remove Face from WatchlistItem specified by FaceId and
             WatchlistItemId.
         '400':
-          description: Face with is not linked to WlItem.
+          description: Face with is not linked to WatchlistMember.
         '404':
           description: FaceId or WatchlistItemId does not exists.
   /api/v1/WatchlistItems/LinkToWatchlist:
@@ -1442,11 +1442,11 @@ paths:
           required: true
           schema:
             required:
-              - WlItemIds
+              - WatchlistMemberIds
               - WatchlistId
             type: object
             properties:
-              WlItemIds:
+              WatchlistMemberIds:
                 type: array
                 items:
                   format: int64
@@ -1477,11 +1477,11 @@ paths:
           required: true
           schema:
             required:
-              - WlItemIds
+              - WatchlistMemberIds
               - WatchlistId
             type: object
             properties:
-              WlItemIds:
+              WatchlistMemberIds:
                 type: array
                 items:
                   format: int64
@@ -2840,7 +2840,7 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/ODataResponse[List[WlItem]]'
+            $ref: '#/definitions/ODataResponse[List[WatchlistMember]]'
       deprecated: false
   '/odata/WatchlistItems({Id})':
     get:
@@ -2872,7 +2872,7 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/WlItem'
+            $ref: '#/definitions/WatchlistMember'
       deprecated: false
       
   /odata/Watchlists:
@@ -3283,7 +3283,7 @@ definitions:
         type: string
       Note:
         type: string
-  RegisterWlItemData:
+  RegisterWatchlistMemberData:
     required:
       - ExternalId
       - ImageData
@@ -3295,12 +3295,12 @@ definitions:
       ImageData:
         type: array
         items:
-          $ref: '#/definitions/RegisterWlItemImageData'
+          $ref: '#/definitions/RegisterWatchlistMemberImageData'
       WatchlistExternalIds:
         type: array
         items:
           type: string
-  RegisterWlItemImageData:
+  RegisterWatchlistMemberImageData:
     required:
       - Data
       - MIME
@@ -3312,7 +3312,7 @@ definitions:
       MIME:
         pattern: image\/(png|jpeg)
         type: string
-  AddExistingFaceToWlItemData:
+  AddExistingFaceToWatchlistMemberData:
     description: Data required for adding cloned face to WatchlistItem.
     required:
       - FaceId
@@ -3327,7 +3327,7 @@ definitions:
         format: int64
         description: WatchlistItem Id that cloned face will be linked to.
         type: integer
-  RemoveExistingFaceFromWlItemData:
+  RemoveExistingFaceFromWatchlistMemberData:
     description: Data required for removing face from WatchlistItem.
     required:
       - FaceId
@@ -3437,7 +3437,7 @@ definitions:
       Score:
         format: int32
         type: integer
-      WlItemId:
+      WatchlistMemberId:
         format: int64
         type: integer
       ExternalId:
@@ -3910,7 +3910,7 @@ definitions:
         format: int64
         type: integer
         readOnly: true
-  WlItem:
+  WatchlistMember:
     required:
       - Id
       - CreatedAt
@@ -4296,7 +4296,7 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/Stream'
-  'ODataResponse[List[WlItem]]':
+  'ODataResponse[List[WatchlistMember]]':
     required: []
     type: object
     properties:
@@ -4305,9 +4305,9 @@ definitions:
       value:
         type: array
         items:
-          $ref: '#/definitions/WlItem'
+          $ref: '#/definitions/WatchlistMember'
   WatchlistItemCreateData:
-    description: Model for creation of new WlItem.
+    description: Model for creation of new WatchlistMember.
     required: []
     type: object
     properties:
@@ -4383,7 +4383,7 @@ definitions:
     required:
       - Id
       - WatchlistId
-      - WlItemId
+      - WatchlistMemberId
       - StreamId
       - Score
       - CreatedAt
@@ -4399,10 +4399,10 @@ definitions:
       WatchlistId:
         format: int64
         type: integer
-      WlItemId:
+      WatchlistMemberId:
         format: int64
         type: integer
-      WlItemExternalId:
+      WatchlistMemberExternalId:
         type: string
       StreamId:
         format: int64
@@ -4419,9 +4419,9 @@ definitions:
       TrackletId:
         format: int64
         type: integer
-      WlItemFullName:
+      WatchlistMemberFullName:
         type: string
-      WlItemDisplayName:
+      WatchlistMemberDisplayName:
         type: string
       WatchlistFullName:
         type: string
