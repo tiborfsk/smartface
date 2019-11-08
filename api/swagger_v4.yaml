@@ -872,10 +872,10 @@ paths:
           description: Face does not exist.
       deprecated: false
       
-  /api/v1/Tracklets/{Id}':
+  /api/v1/Appearances/Tracklets/{Id}':
     get:
       tags:
-        - api/v1/Tracklets
+        - api/v1/Appearances/Tracklets
       summary: Gets the specified Tracklet.
       operationId: Tracklets_GetById
       consumes: []
@@ -896,7 +896,7 @@ paths:
       deprecated: false
     delete:
       tags:
-        - api/v1/Tracklets
+        - api/v1/Appearances/Tracklets
       summary: Deletes the specified Tracklet.
       operationId: Tracklets_DeleteById
       consumes: []
@@ -916,10 +916,10 @@ paths:
           description: Tracklet does not exist.
       deprecated: false
       
-  /api/v1/Identities/{Id}:
+  /api/v1/Appearances/Identities/{Id}:
     get:
       tags:
-        - api/v1/Identities
+        - api/v1/Appearances/Identities
       summary: Gets the specified Identity.
       operationId: Identities_GetById
       consumes: []
@@ -940,7 +940,7 @@ paths:
       deprecated: false
     delete:
       tags:
-        - api/v1/Identities
+        - api/v1/Appearances/Identities
       summary: Deletes the specified identity.
       operationId: Identities_DeleteById
       consumes: []
@@ -961,7 +961,7 @@ paths:
       deprecated: false
     patch:
       tags:
-        - api/v1/Identities
+        - api/v1/Appearances/Identities
       summary: Updates the specified Identity.
       description: Currently only allows to update Hidden property.
       operationId: Identities_PatchById
@@ -988,10 +988,10 @@ paths:
           schema:
             type: object
       deprecated: false
-  /api/v1/Identities/Split:
+  /api/v1/Appearances/Identities/Split:
     post:
       tags:
-        - api/v1/Identities
+        - api/v1/Appearances/Identities
       summary: Splits the specified parameters.
       description: >-
         Splits requested Tracklets from provided Identity into new Identity. Newly
@@ -1028,10 +1028,10 @@ paths:
         '404':
           description: Not found
       deprecated: false
-  /api/v1/Identities/Merge:
+  /api/v1/Appearances/Identities/Merge:
     post:
       tags:
-        - api/v1/Identities
+        - api/v1/Appearances/Identities
       summary: Merges the specified Identities.
       description: >-
         Merge provided Identities into single Identity. Id of first Identity Id
@@ -1062,10 +1062,10 @@ paths:
         '404':
           description: Not found
       deprecated: false
-  /api/v1/Identities/Search:
+  /api/v1/Appearances/Identities/Search:
     post:
       tags:
-        - api/v1/Identities
+        - api/v1/Appearances/Identities
       summary: Searches Identities by specified Frame.
       description: >-
         Search will be performed on all Identities in specified Grouping or
