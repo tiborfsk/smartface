@@ -614,12 +614,12 @@ paths:
 
 
             
-  /api/v1/Management/Ping:
+  /api/v1/Version:
     get:
       tags:
-        - api/v1/Management
+        - api/v1/Version
       summary: Gets the information about SmartFace database and assembly.
-      operationId: Ping_Get
+      operationId: Version_Get
       consumes: []
       produces:
         - application/json
@@ -628,12 +628,13 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/Ping'
+            $ref: '#/definitions/Version'
       deprecated: false  
-  /api/v1/Management/License/Check:
+
+  /api/v1/License/Check:
     get:
       tags:
-        - api/v1/Management
+        - api/v1/License
       summary: Validate Innovatrics license
       operationId: LicenseCheck_Check
       consumes: []
@@ -650,10 +651,11 @@ paths:
           description: Status returned.
           schema:
             $ref: '#/definitions/LicenseCheckResponse'
-  /api/v1/Management/SoftRestart:
+
+  /api/v1/Config/SoftRestart:
     post:
       tags:
-        - api/v1/Management
+        - api/v1/Config
       summary: Handle soft api/v1art of SmartFace services.
       operationId: Services_SoftRestart
       consumes: []
@@ -671,10 +673,11 @@ paths:
         '204':
           description: Soft reset command to services send successfully.
       deprecated: false
-  /api/v1/Management/SetLogLevel:
+
+  /api/v1/Config/SetLogLevel:
     post:
       tags:
-        - api/v1/Management
+        - api/v1/Config
       summary: Sets the log level.
       description: >-
         Allows to dynamically change log level for specified C# class (with
@@ -709,10 +712,10 @@ paths:
           description: Success
       deprecated: false
       
-  /api/v1/Management/Config/DbCleanUp:
+  /api/v1/Config/DbCleanUp:
     get:
       tags:
-        - api/v1/Management/Config
+        - api/v1/Config
       summary: Gets Config for DbCleanUp Worker.
       operationId: DbCleanUpConfig_Get
       consumes: []
@@ -726,7 +729,7 @@ paths:
       deprecated: false
     patch:
       tags:
-        - api/v1/Management/Config
+        - api/v1/Config
       summary: Updates DbCleanUpConfig.
       operationId: DbCleanUpConfig_Patch
       consumes:
@@ -746,10 +749,10 @@ paths:
           schema:
             type: object
       deprecated: false
-  /api/v1/Management/Config/Extracting:
+  /api/v1/Config/Extracting:
     get:
       tags:
-        - api/v1/Management/Config
+        - api/v1/Config
       summary: Gets Config for Extract Workers.
       operationId: ExtractorConfig_Get
       consumes: []
@@ -763,7 +766,7 @@ paths:
       deprecated: false
     patch:
       tags:
-        - api/v1/Management/Config
+        - api/v1/Config
       summary: Updates ExtractorConfig.
       operationId: ExtractorConfig_Patch
       consumes:
@@ -4200,7 +4203,7 @@ definitions:
           - NotFound
           - Error
         type: string
-  Ping:
+  Version:
     description: Represents information about SmartFace version.
     required:
       - Id
