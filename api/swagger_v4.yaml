@@ -9,10 +9,10 @@ schemes:
 consumes: []
 produces: []
 paths:
-  /api/v1/Cameras:
+  /api/v1/Setup/Cameras:
     get:
       tags:
-      - api/v1/Cameras
+      - api/v1/Setup/Cameras
       summary: "Returns all Cameras"
       description: "Returns all Cameras"
       operationId: "getLiveCameras"
@@ -25,7 +25,7 @@ paths:
             $ref: '#/definitions/ListLiveCamera'
     post:
       tags:
-      - api/v1/Cameras
+      - api/v1/Setup/Cameras
       summary: "Add a new live camera"
       description: ""
       operationId: "addLiveCamera"
@@ -43,10 +43,10 @@ paths:
       responses:
         405:
           description: "Invalid input"
-  /api/v1/Cameras/{liveCameraId}:
+  /api/v1/Setup/Cameras/{liveCameraId}:
     get:
       tags:
-      - api/v1/Cameras
+      - api/v1/Setup/Cameras
       summary: "Returns Camera"
       description: "Returns Camera"
       operationId: "getLiveCamera"
@@ -65,7 +65,7 @@ paths:
             $ref: '#/definitions/LiveCamera'
     delete:
       tags:
-      - api/v1/Cameras
+      - api/v1/Setup/Cameras
       summary: "Delete Camera"
       description: "Delete Camera"
       operationId: "deleteLiveCamera"
@@ -83,10 +83,10 @@ paths:
         404:
           description: "Not found"
           
-  /api/v1/VideoRecordings/:
+  /api/v1/Setup/VideoRecordings/:
     get:
       tags:
-      - api/v1/VideoRecordings
+      - api/v1/Setup/VideoRecordings
       summary: "Returns all video records"
       description: "Returns all video records"
       operationId: "getVideoRecords"
@@ -105,7 +105,7 @@ paths:
             $ref: '#/definitions/ListVideoRecord'
     post:
       tags:
-      - api/v1/VideoRecordings
+      - api/v1/Setup/VideoRecordings
       summary: "Add a new video record"
       description: ""
       operationId: "RecordedVideo"
@@ -128,10 +128,10 @@ paths:
       responses:
         405:
           description: "Invalid input"
-  /api/v1/VideoRecordings/{id}:
+  /api/v1/Setup/VideoRecordings/{id}:
     get:
       tags:
-      - api/v1/VideoRecordings
+      - api/v1/Setup/VideoRecordings
       summary: "Returns recorded video"
       description: ""
       operationId: "getRecordedDataScopeVideoRecord"
@@ -150,7 +150,7 @@ paths:
             $ref: '#/definitions/VideoRecord'
     delete:
       tags:
-      - api/v1/VideoRecordings
+      - api/v1/Setup/VideoRecordings
       summary: "Delete video"
       description: "Delete video"
       operationId: "deleteRecordedVideo"
@@ -168,10 +168,10 @@ paths:
         404:
           description: "Not found"
           
-  /api/v1/Groupings/Live:
+  /api/v1/Setup/Groupings/Live:
     get:
       tags:
-      - api/v1/Groupings/Live
+      - api/v1/Setup/Groupings/Live
       summary: "Returns all Groupings"
       description: "Returns all Groupings"
       operationId: "getLiveGroupings"
@@ -185,7 +185,7 @@ paths:
             $ref: '#/definitions/ListLiveGrouping'
     post:
       tags:
-      - api/v1/Groupings/Live
+      - api/v1/Setup/Groupings/Live
       summary: "Add a new grouping"
       description: ""
       operationId: "addLiveGrouping"
@@ -203,10 +203,10 @@ paths:
       responses:
         405:
           description: "Invalid input"
-  /api/v1/Groupings/Live/{groupingId}:
+  /api/v1/Setup/Groupings/Live/{groupingId}:
     get:
       tags:
-      - api/v1/Groupings/Live
+      - api/v1/Setup/Groupings/Live
       summary: "Find Grouping by ID"
       description: "Returns a single Grouping"
       operationId: "getLiveGroupingById"
@@ -229,7 +229,7 @@ paths:
           description: "Scope not found"
     delete:
       tags:
-      - api/v1/Groupings/Live
+      - api/v1/Setup/Groupings/Live
       summary: "Deletes a Grouping"
       description: ""
       operationId: "deleteLiveGrouping"
@@ -247,10 +247,10 @@ paths:
           description: "Invalid ID supplied"
         404:
           description: "Grouping not found"
-  /api/v1/Groupings/Live/{groupingId}/Cameras:
+  /api/v1/Setup/Groupings/Live/{groupingId}/Cameras:
     get:
       tags:
-      - api/v1/Groupings/Live
+      - api/v1/Setup/Groupings/Live
       summary: "Returns all Grouping Cameras"
       description: "Returns all Grouping Cameras"
       operationId: "getLiveGroupingCameras"
@@ -267,10 +267,10 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/ListLiveCamera'
-  /api/v1/Groupings/Live/{groupingId}/Cameras/{liveCameraId}:
+  /api/v1/Setup/Groupings/Live/{groupingId}/Cameras/{liveCameraId}:
     get:
       tags:
-      - api/v1/Groupings/Live
+      - api/v1/Setup/Groupings/Live
       summary: "Returns Camera"
       description: "Returns Camera"
       operationId: "getLiveGroupingCamera"
@@ -292,10 +292,10 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/LiveCamera'
-  /api/v1/Groupings/Live/{groupingId}/LinkToCamera:
+  /api/v1/Setup/Groupings/Live/{groupingId}/LinkToCamera:
     post:
       tags:
-        - api/v1/Groupings/Live
+        - api/v1/Setup/Groupings/Live
       summary: Links to camera.
       operationId: Grouping_LinkToCamera
       consumes:
@@ -327,10 +327,10 @@ paths:
         '200':
           description: Link Cameras to Grouping.
       deprecated: false
-  /api/v1/Groupings/Live/{groupingId}/UnLinkFromCamera:
+  /api/v1/Setup/Groupings/Live/{groupingId}/UnLinkFromCamera:
     post:
       tags:
-        - api/v1/Groupings/Live
+        - api/v1/Setup/Groupings/Live
       summary: Unlink from Camera.
       operationId: Grouping_UnlinkFromCamera
       consumes:
@@ -370,10 +370,10 @@ paths:
 
 
             
-  /api/v1/Groupings/Recordings:
+  /api/v1/Setup/Groupings/Recordings:
     get:
       tags:
-      - api/v1/Groupings/Recordings
+      - api/v1/Setup/Groupings/Recordings
       summary: "Returns all Groupings"
       description: "Returns all Groupings"
       operationId: "getRDGroupings"
@@ -387,7 +387,7 @@ paths:
             $ref: '#/definitions/ListRecordingsGrouping'
     post:
       tags:
-      - api/v1/Groupings/Recordings
+      - api/v1/Setup/Groupings/Recordings
       summary: "Add a new grouping"
       description: ""
       operationId: "addRDGrouping"
@@ -405,10 +405,10 @@ paths:
       responses:
         405:
           description: "Invalid input"
-  /api/v1/Groupings/Recordings/{groupingId}:
+  /api/v1/Setup/Groupings/Recordings/{groupingId}:
     get:
       tags:
-      - api/v1/Groupings/Recordings
+      - api/v1/Setup/Groupings/Recordings
       summary: "Find Grouping by ID"
       description: "Returns a single Grouping"
       operationId: "getRDGroupingById"
@@ -431,7 +431,7 @@ paths:
           description: "Scope not found"
     delete:
       tags:
-      - api/v1/Groupings/Recordings
+      - api/v1/Setup/Groupings/Recordings
       summary: "Deletes a Grouping"
       description: ""
       operationId: "deleteRDGrouping"
@@ -449,10 +449,10 @@ paths:
           description: "Invalid ID supplied"
         404:
           description: "LiveScope not found"
-  /api/v1/Groupings/Recordings/{groupingId}/GetStatus:
+  /api/v1/Setup/Groupings/Recordings/{groupingId}/GetStatus:
     get:
       tags:
-      - api/v1/Groupings/Recordings
+      - api/v1/Setup/Groupings/Recordings
       summary: Gets progress status of scope.
       description: Returns progress info message for given scope.
       operationId: GetGroupingStatus
@@ -471,10 +471,10 @@ paths:
         '404':
           description: Not found
       deprecated: false
-  /api/v1/Groupings/Recordings/{groupingId}/UploadImage:
+  /api/v1/Setup/Groupings/Recordings/{groupingId}/UploadImage:
     post:
       tags:
-      - api/v1/Groupings/Recordings
+      - api/v1/Setup/Groupings/Recordings
       summary: "uploads an image"
       description: ""
       operationId: Frames_Post
@@ -499,10 +499,10 @@ paths:
           description: Created
           schema:
             $ref: '#/definitions/Frame' 
-  /api/v1/Groupings/Recordings/{groupingId}/VideoRecords:
+  /api/v1/Setup/Groupings/Recordings/{groupingId}/VideoRecords:
     get:
       tags:
-      - api/v1/Groupings/Recordings
+      - api/v1/Setup/Groupings/Recordings
       summary: "Returns all video records"
       description: "Returns all video records"
       operationId: "getGroupingVideoRecords"
@@ -519,12 +519,12 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/ListVideoRecord'
-  /api/v1/Groupings/Recordings/{groupingId}/VideoRecords/{videoRecordId}:
+  /api/v1/Setup/Groupings/Recordings/{groupingId}/VideoRecords/{videoRecordId}:
     get:
       tags:
-      - api/v1/Groupings/Recordings
-      summary: "Returns grouping video"
-      description: "Returns grouping video"
+      - api/v1/Setup/Groupings/Recordings
+      summary: "Returns VideoRecord which is linked to Grouping"
+      description: "Returns VideoRecord which is linked to Grouping"
       operationId: "getGroupingVideoRecord"
       produces:
       - "application/json"
@@ -544,10 +544,10 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/VideoRecord'          
-  /api/v1/Groupings/Recordings/{groupingId}/LinkToVideoRecord:
+  /api/v1/Setup/Groupings/Recordings/{groupingId}/LinkToVideoRecord:
     post:
       tags:
-        - api/v1/Groupings/Recordings
+        - api/v1/Setup/Groupings/Recordings
       summary: Links to VideoRecord.
       operationId: Grouping_LinkToVideoRecord
       consumes:
@@ -579,10 +579,10 @@ paths:
         '200':
           description: Link Cameras to Grouping.
       deprecated: false
-  /api/v1/Groupings/Recordings/{groupingId}/UnLinkFromVideoRecord:
+  /api/v1/Setup/Groupings/Recordings/{groupingId}/UnLinkFromVideoRecord:
     post:
       tags:
-        - api/v1/Groupings/Recordings
+        - api/v1/Setup/Groupings/Recordings
       summary: Unlink from VideoRecord.
       operationId: Grouping_UnlinkFromVideoRecord
       consumes:
@@ -612,6 +612,40 @@ paths:
                   type: integer
             
 
+  /api/v1/Setup/Resources/TemplateGenerators:
+    get:
+      tags:
+        - api/v1/Setup/Resources
+      summary: Configuration of TemplateGenerators
+      operationId: TemplateGenerator_Get
+      consumes: []
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/ListTemplateGenerator'
+      deprecated: false
+  /api/v1/Setup/Resources/TemplateGenerators/{resourceId}:
+    get:
+      tags:
+        - api/v1/Setup/Resources
+      summary: "Returns all video records"
+      description: "Returns all video records"
+      operationId: "getGroupingVideoRecords"
+      produces:
+        - "application/json"
+      parameters:
+      - name: "resourceId"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/TemplateGenerator'
 
             
   /api/v1/Version:
@@ -631,32 +665,11 @@ paths:
             $ref: '#/definitions/Version'
       deprecated: false  
 
-  /api/v1/License/Check:
-    get:
-      tags:
-        - api/v1/License
-      summary: Validate Innovatrics license
-      operationId: LicenseCheck_Check
-      consumes: []
-      produces:
-        - application/json
-        - text/json
-        - application/xml
-        - text/xml
-        - application/x-www-form-urlencoded
-        - multipart/form-data
-        - application/octet-stream
-      responses:
-        '200':
-          description: Status returned.
-          schema:
-            $ref: '#/definitions/LicenseCheckResponse'
-
   /api/v1/Config/SoftRestart:
     post:
       tags:
         - api/v1/Config
-      summary: Handle soft api/v1art of SmartFace services.
+      summary: Handle soft restart of SmartFace services.
       operationId: Services_SoftRestart
       consumes: []
       produces:
@@ -743,43 +756,6 @@ paths:
           required: true
           schema:
             $ref: '#/definitions/DbCleanUpConfig'
-      responses:
-        '200':
-          description: OK
-          schema:
-            type: object
-      deprecated: false
-  /api/v1/Config/Extracting:
-    get:
-      tags:
-        - api/v1/Config
-      summary: Gets Config for Extract Workers.
-      operationId: ExtractorConfig_Get
-      consumes: []
-      produces:
-        - application/json
-      responses:
-        '200':
-          description: OK
-          schema:
-            $ref: '#/definitions/ExtractorConfig'
-      deprecated: false
-    patch:
-      tags:
-        - api/v1/Config
-      summary: Updates ExtractorConfig.
-      operationId: ExtractorConfig_Patch
-      consumes:
-        - application/json
-      produces:
-        - application/json
-      parameters:
-        - name: ExtractorConfig
-          in: body
-          description: The entity to patch
-          required: true
-          schema:
-            $ref: '#/definitions/ExtractorConfig'
       responses:
         '200':
           description: OK
@@ -875,10 +851,10 @@ paths:
           description: Face does not exist.
       deprecated: false
       
-  /api/v1/Appearances/Tracklets/{Id}':
+  /api/v1/Tracklets/{Id}':
     get:
       tags:
-        - api/v1/Appearances/Tracklets
+        - api/v1/Tracklets
       summary: Gets the specified Tracklet.
       operationId: Tracklets_GetById
       consumes: []
@@ -899,7 +875,7 @@ paths:
       deprecated: false
     delete:
       tags:
-        - api/v1/Appearances/Tracklets
+        - api/v1/Tracklets
       summary: Deletes the specified Tracklet.
       operationId: Tracklets_DeleteById
       consumes: []
@@ -919,19 +895,19 @@ paths:
           description: Tracklet does not exist.
       deprecated: false
       
-  /api/v1/Appearances/Identities/{Id}:
+  /api/v1/Individuals/{Id}:
     get:
       tags:
-        - api/v1/Appearances/Identities
-      summary: Gets the specified Identity.
-      operationId: Identities_GetById
+        - api/v1/Individuals
+      summary: Gets the specified Individual.
+      operationId: Individuals_GetById
       consumes: []
       produces:
         - application/json
       parameters:
         - name: Id
           in: path
-          description: Id of Identity which is requested.
+          description: Id of Individual which is requested.
           required: true
           type: integer
           format: int64
@@ -939,20 +915,20 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/Identity'
+            $ref: '#/definitions/Individual'
       deprecated: false
     delete:
       tags:
-        - api/v1/Appearances/Identities
-      summary: Deletes the specified identity.
-      operationId: Identities_DeleteById
+        - api/v1/Individuals
+      summary: Deletes the specified Individual.
+      operationId: Individuals_DeleteById
       consumes: []
       produces:
         - application/json
       parameters:
         - name: Id
           in: path
-          description: Id of identity to be deleted.
+          description: Id of Individual to be deleted.
           required: true
           type: integer
           format: int64
@@ -960,14 +936,14 @@ paths:
         '204':
           description: Success
         '404':
-          description: Identity does not exist.
+          description: Individual does not exist.
       deprecated: false
     patch:
       tags:
-        - api/v1/Appearances/Identities
-      summary: Updates the specified Identity.
+        - api/v1/Individuals
+      summary: Updates the specified Individual.
       description: Currently only allows to update Hidden property.
-      operationId: Identities_PatchById
+      operationId: Individuals_PatchById
       consumes:
         - application/json
       produces:
@@ -975,7 +951,7 @@ paths:
       parameters:
         - name: Id
           in: path
-          description: Id of Identity that will be updated.
+          description: Id of Individual that will be updated.
           required: true
           type: integer
           format: int64
@@ -984,22 +960,22 @@ paths:
           description: The entity to patch
           required: true
           schema:
-            $ref: '#/definitions/Identity'
+            $ref: '#/definitions/Individual'
       responses:
         '200':
           description: OK
           schema:
             type: object
       deprecated: false
-  /api/v1/Appearances/Identities/Split:
+  /api/v1/Individuals/Split:
     post:
       tags:
-        - api/v1/Appearances/Identities
+        - api/v1/Individuals
       summary: Splits the specified parameters.
       description: >-
-        Splits requested Tracklets from provided Identity into new Identity. Newly
-        created Identity Id will be returned in response.
-      operationId: Identities_Split
+        Splits requested Tracklets from provided Individual into new Individual. Newly
+        created Individual Id will be returned in response.
+      operationId: Individuals_Split
       consumes:
         - application/json
       produces:
@@ -1008,16 +984,16 @@ paths:
         - name: Payload
           in: body
           description: >-
-            JSON with list of Tracklet Ids that will be split to new Identity and
-            Id of Identity that will be splitted.
+            JSON with list of Tracklet Ids that will be split to new Individual and
+            Id of Individual that will be splitted.
           required: true
           schema:
             required:
-              - IdentityId
+              - IndividualId
               - TrackletIds
             type: object
             properties:
-              IdentityId:
+              IndividualId:
                 format: int64
                 type: integer
               TrackletIds:
@@ -1031,15 +1007,15 @@ paths:
         '404':
           description: Not found
       deprecated: false
-  /api/v1/Appearances/Identities/Merge:
+  /api/v1/Individuals/Merge:
     post:
       tags:
-        - api/v1/Appearances/Identities
-      summary: Merges the specified Identities.
+        - api/v1/Individuals
+      summary: Merges the specified Individuals.
       description: >-
-        Merge provided Identities into single Identity. Id of first Identity Id
-        will be used as merged Identity Id.
-      operationId: Identities_Merge
+        Merge provided Individuals into single Individual. Id of first Individual Id
+        will be used as merged Individual Id.
+      operationId: Individuals_Merge
       consumes:
         - application/json
       produces:
@@ -1047,7 +1023,7 @@ paths:
       parameters:
         - name: Payload
           in: body
-          description: JSON with list of Identity Ids that will be merged.
+          description: JSON with list of Individual Ids that will be merged.
           required: true
           schema:
             required:
@@ -1065,16 +1041,16 @@ paths:
         '404':
           description: Not found
       deprecated: false
-  /api/v1/Appearances/Identities/Search:
+  /api/v1/Individuals/Search:
     post:
       tags:
-        - api/v1/Appearances/Identities
-      summary: Searches Identities by specified Frame.
+        - api/v1/Individuals
+      summary: Searches Individuals by specified Frame.
       description: >-
-        Search will be performed on all Identities in specified Grouping or
+        Search will be performed on all Individuals in specified Grouping or
         Scope, using all of their Faces. Uploaded Frame should contain only one
         face.
-      operationId: Identities_Search
+      operationId: Individuals_Search
       consumes:
         - multipart/form-data
       produces:
@@ -1099,7 +1075,7 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/ODataResponse[List[Identity]]'
+            $ref: '#/definitions/ODataResponse[List[Individual]]'
       deprecated: false
       
   /api/v1/Frames/{Id}:
@@ -1181,52 +1157,6 @@ paths:
           description: Not found
       deprecated: false
       
-  /api/v1/Streams/{Id}':
-    get:
-      tags:
-        - api/v1/Streams
-      summary: Gets the specified Stream.
-      operationId: Streams_GetById
-      consumes: []
-      produces:
-        - application/json
-      parameters:
-        - name: Id
-          in: path
-          description: Id of requested Stream.
-          required: true
-          type: integer
-          format: int64
-      responses:
-        '200':
-          description: OK
-          schema:
-            $ref: '#/definitions/StreamData'
-      deprecated: false
-    delete:
-      tags:
-        - api/v1/Streams
-      summary: Updates specified Stream.
-      description: Currently only allows to update Description or Name.
-      operationId: Streams_DeleteById
-      consumes:
-        - application/json
-      produces:
-        - application/json
-      parameters:
-        - name: Id
-          in: path
-          description: Id of Stream that will be deleted.
-          required: true
-          type: integer
-          format: int64
-      responses:
-        '204':
-          description: Success
-        '404':
-          description: Not found
-      deprecated: false
-
   /api/v1/WatchlistMembers:
     post:
       tags:
@@ -1776,12 +1706,12 @@ paths:
           schema:
             $ref: '#/definitions/ODataResponse[List[Frame]]'
       deprecated: false
-  '/odata/Scopes(Id={id})/Identities':
+  '/odata/Scopes(Id={id})/Individuals':
     get:
       tags:
         - odata/Scopes
-      summary: Gets Identities that belong to specified scope.
-      operationId: Scopes_GetIdentitiesById
+      summary: Gets Individuals that belong to specified scope.
+      operationId: Scopes_GetIndividualsById
       consumes: []
       produces:
         - application/json
@@ -1833,7 +1763,7 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/ODataResponse[List[Identity]]'
+            $ref: '#/definitions/ODataResponse[List[Individual]]'
       deprecated: false
   '/odata/Scopes(Id={id})/Groupings':
     get:
@@ -2153,12 +2083,12 @@ paths:
             $ref: '#/definitions/Tracklet'
       deprecated: false
       
-  /odata/Identities:
+  /odata/Individuals:
     get:
       tags:
-        - odata/Identities
-      summary: Gets list of all Identities present on the server.
-      operationId: Identities_Get
+        - odata/Individuals
+      summary: Gets list of all Individuals present on the server.
+      operationId: Individuals_Get
       consumes: []
       produces:
         - application/json
@@ -2204,21 +2134,21 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/ODataResponse[List[Identity]]'
+            $ref: '#/definitions/ODataResponse[List[Individual]]'
       deprecated: false
-  '/odata/Identities({Id})':
+  '/odata/Individuals({Id})':
     get:
       tags:
-        - odata/Identities
-      summary: Gets the specified Identity.
-      operationId: Identities_GetById
+        - odata/Individuals
+      summary: Gets the specified Individual.
+      operationId: Individuals_GetById
       consumes: []
       produces:
         - application/json
       parameters:
         - name: Id
           in: path
-          description: Id of Identity which is requested.
+          description: Id of Individual which is requested.
           required: true
           type: integer
           format: int64
@@ -2236,21 +2166,21 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/Identity'
+            $ref: '#/definitions/Individual'
       deprecated: false
-  '/odata/Identities(Id={id})/Frames':
+  '/odata/Individuals(Id={id})/Frames':
     get:
       tags:
-        - odata/Identities
-      summary: Gets the Frames that belong to specified Identity.
-      operationId: Identities_GetFramesById
+        - odata/Individuals
+      summary: Gets the Frames that belong to specified Individual.
+      operationId: Individuals_GetFramesById
       consumes: []
       produces:
         - application/json
       parameters:
         - name: Id
           in: path
-          description: Id of Identity.
+          description: Id of Individual.
           required: true
           type: integer
           format: int64
@@ -2297,19 +2227,19 @@ paths:
           schema:
             $ref: '#/definitions/ODataResponse[List[Frame]]'
       deprecated: false
-  '/odata/Identities(Id={id})/Faces':
+  '/odata/Individuals(Id={id})/Faces':
     get:
       tags:
-        - odata/Identities
-      summary: Gets the faces that belong to Identity with Id.
-      operationId: Identities_GetFacesById
+        - odata/Individuals
+      summary: Gets the faces that belong to Individual with Id.
+      operationId: Individuals_GetFacesById
       consumes: []
       produces:
         - application/json
       parameters:
         - name: Id
           in: path
-          description: Id of Identity.
+          description: Id of Individual.
           required: true
           type: integer
           format: int64
@@ -2442,12 +2372,12 @@ paths:
           schema:
             $ref: '#/definitions/Grouping'
       deprecated: false
-  '/odata/Groupings(Id={id})/Identities':
+  '/odata/Groupings(Id={id})/Individuals':
     get:
       tags:
         - odata/Groupings
-      summary: Gets list of all Identities which belong to specified Grouping.
-      operationId: Groupings_GetIdentitiesById
+      summary: Gets list of all Individuals which belong to specified Grouping.
+      operationId: Groupings_GetIndividualsById
       consumes: []
       produces:
         - application/json
@@ -2499,7 +2429,7 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/ODataResponse[List[Identity]]'
+            $ref: '#/definitions/ODataResponse[List[Individual]]'
       deprecated: false
       
   /odata/Frames:
@@ -2587,12 +2517,12 @@ paths:
           schema:
             $ref: '#/definitions/Frame'
       deprecated: false
-  '/odata/Frames(Id={id})/Identities':
+  '/odata/Frames(Id={id})/Individuals':
     get:
       tags:
         - odata/Frames
-      summary: Gets Identities that belong to specified Frame.
-      operationId: Frames_GetIdentitiesById
+      summary: Gets Individuals that belong to specified Frame.
+      operationId: Frames_GetIndividualsById
       consumes: []
       produces:
         - application/json
@@ -2644,7 +2574,7 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/ODataResponse[List[Identity]]'
+            $ref: '#/definitions/ODataResponse[List[Individual]]'
       deprecated: false
   '/odata/Frames(Id={id})/Faces':
     get:
@@ -2758,7 +2688,7 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/ODataResponse[List[Stream]]'
-      deprecated: false
+      deprecated: true
   '/odata/Streams({Id})':
     get:
       tags:
@@ -2790,7 +2720,7 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/Stream'
-      deprecated: false
+      deprecated: true
       
   /odata/WatchlistMembers:
     get:
@@ -3071,17 +3001,21 @@ definitions:
         type: boolean
         example: true
         
-  ExtractorConfig:
+  TemplateGenerator:
     type: "object"
     properties: 
-      ExtractorsCount:
-        type: "integer"
-        format: "int64"
-        example: 3
-      GpuEnabled:
-        type: boolean
-        example: true
-        
+      ResourceId:
+        type: "string"
+        example: "TemplateGenerator_Gpu"
+  ListTemplateGenerator:
+    required: []
+    type: object
+    properties:
+      value:
+        type: array
+        items:
+          $ref: '#/definitions/TemplateGenerator'
+
   FaceHandlerConfig:
     type: "object"
     properties: 
@@ -3254,38 +3188,6 @@ definitions:
         items:
           $ref: '#/definitions/LiveCamera'
           
-  LicenseCheckResponse:
-    required:
-      - Licenses
-      - Validity
-    type: object
-    properties:
-      Validity:
-        enum:
-          - Valid
-          - Invalid
-          - Unknown
-        type: string
-      Licenses:
-        type: array
-        items:
-          $ref: '#/definitions/LicenseStatus'
-  LicenseStatus:
-    required:
-      - License
-      - Validity
-    type: object
-    properties:
-      License:
-        type: string
-      Validity:
-        enum:
-          - Valid
-          - Invalid
-          - Unknown
-        type: string
-      Note:
-        type: string
   RegisterWatchlistMemberData:
     required:
       - ExternalId
@@ -3873,7 +3775,7 @@ definitions:
         type: integer
       ValueFormatted:
         type: string
-  Identity:
+  Individual:
     required:
       - Id
       - GroupingId
@@ -4112,7 +4014,7 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/Grouping'
-  'ODataResponse[List[Identity]]':
+  'ODataResponse[List[Individual]]':
     required: []
     type: object
     properties:
@@ -4121,7 +4023,7 @@ definitions:
       value:
         type: array
         items:
-          $ref: '#/definitions/Identity'
+          $ref: '#/definitions/Individual'
   'ODataResponse[Int64]':
     required: []
     type: object
