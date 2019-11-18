@@ -12,10 +12,10 @@
   "consumes": [],
   "produces": [],
   "paths": {
-    "/api/v1/Cameras": {
+    "/api/v1/Setup/Cameras": {
       "get": {
         "tags": [
-          "api/v1/Cameras"
+          "api/v1/Setup/Cameras"
         ],
         "summary": "Returns all Cameras",
         "description": "Returns all Cameras",
@@ -34,7 +34,7 @@
       },
       "post": {
         "tags": [
-          "api/v1/Cameras"
+          "api/v1/Setup/Cameras"
         ],
         "summary": "Add a new live camera",
         "description": "",
@@ -63,10 +63,10 @@
         }
       }
     },
-    "/api/v1/Cameras/{liveCameraId}": {
+    "/api/v1/Setup/Cameras/{liveCameraId}": {
       "get": {
         "tags": [
-          "api/v1/Cameras"
+          "api/v1/Setup/Cameras"
         ],
         "summary": "Returns Camera",
         "description": "Returns Camera",
@@ -94,7 +94,7 @@
       },
       "delete": {
         "tags": [
-          "api/v1/Cameras"
+          "api/v1/Setup/Cameras"
         ],
         "summary": "Delete Camera",
         "description": "Delete Camera",
@@ -121,10 +121,10 @@
         }
       }
     },
-    "/api/v1/VideoRecordings/": {
+    "/api/v1/Setup/VideoRecordings/": {
       "get": {
         "tags": [
-          "api/v1/VideoRecordings"
+          "api/v1/Setup/VideoRecordings"
         ],
         "summary": "Returns all video records",
         "description": "Returns all video records",
@@ -152,7 +152,7 @@
       },
       "post": {
         "tags": [
-          "api/v1/VideoRecordings"
+          "api/v1/Setup/VideoRecordings"
         ],
         "summary": "Add a new video record",
         "description": "",
@@ -188,10 +188,10 @@
         }
       }
     },
-    "/api/v1/VideoRecordings/{id}": {
+    "/api/v1/Setup/VideoRecordings/{id}": {
       "get": {
         "tags": [
-          "api/v1/VideoRecordings"
+          "api/v1/Setup/VideoRecordings"
         ],
         "summary": "Returns recorded video",
         "description": "",
@@ -219,7 +219,7 @@
       },
       "delete": {
         "tags": [
-          "api/v1/VideoRecordings"
+          "api/v1/Setup/VideoRecordings"
         ],
         "summary": "Delete video",
         "description": "Delete video",
@@ -246,10 +246,10 @@
         }
       }
     },
-    "/api/v1/Groupings/Live": {
+    "/api/v1/Setup/Groupings/Live": {
       "get": {
         "tags": [
-          "api/v1/Groupings/Live"
+          "api/v1/Setup/Groupings/Live"
         ],
         "summary": "Returns all Groupings",
         "description": "Returns all Groupings",
@@ -269,7 +269,7 @@
       },
       "post": {
         "tags": [
-          "api/v1/Groupings/Live"
+          "api/v1/Setup/Groupings/Live"
         ],
         "summary": "Add a new grouping",
         "description": "",
@@ -298,10 +298,10 @@
         }
       }
     },
-    "/api/v1/Groupings/Live/{groupingId}": {
+    "/api/v1/Setup/Groupings/Live/{groupingId}": {
       "get": {
         "tags": [
-          "api/v1/Groupings/Live"
+          "api/v1/Setup/Groupings/Live"
         ],
         "summary": "Find Grouping by ID",
         "description": "Returns a single Grouping",
@@ -335,7 +335,7 @@
       },
       "delete": {
         "tags": [
-          "api/v1/Groupings/Live"
+          "api/v1/Setup/Groupings/Live"
         ],
         "summary": "Deletes a Grouping",
         "description": "",
@@ -363,10 +363,10 @@
         }
       }
     },
-    "/api/v1/Groupings/Live/{groupingId}/Cameras": {
+    "/api/v1/Setup/Groupings/Live/{groupingId}/Cameras": {
       "get": {
         "tags": [
-          "api/v1/Groupings/Live"
+          "api/v1/Setup/Groupings/Live"
         ],
         "summary": "Returns all Grouping Cameras",
         "description": "Returns all Grouping Cameras",
@@ -393,10 +393,10 @@
         }
       }
     },
-    "/api/v1/Groupings/Live/{groupingId}/Cameras/{liveCameraId}": {
+    "/api/v1/Setup/Groupings/Live/{groupingId}/Cameras/{liveCameraId}": {
       "get": {
         "tags": [
-          "api/v1/Groupings/Live"
+          "api/v1/Setup/Groupings/Live"
         ],
         "summary": "Returns Camera",
         "description": "Returns Camera",
@@ -430,10 +430,10 @@
         }
       }
     },
-    "/api/v1/Groupings/Live/{groupingId}/LinkToCamera": {
+    "/api/v1/Setup/Groupings/Live/{groupingId}/LinkToCamera": {
       "post": {
         "tags": [
-          "api/v1/Groupings/Live"
+          "api/v1/Setup/Groupings/Live"
         ],
         "summary": "Links to camera.",
         "operationId": "Grouping_LinkToCamera",
@@ -481,10 +481,10 @@
         "deprecated": false
       }
     },
-    "/api/v1/Groupings/Live/{groupingId}/UnLinkFromCamera": {
+    "/api/v1/Setup/Groupings/Live/{groupingId}/UnLinkFromCamera": {
       "post": {
         "tags": [
-          "api/v1/Groupings/Live"
+          "api/v1/Setup/Groupings/Live"
         ],
         "summary": "Unlink from Camera.",
         "operationId": "Grouping_UnlinkFromCamera",
@@ -532,10 +532,10 @@
         "deprecated": false
       }
     },
-    "/api/v1/Groupings/Recordings": {
+    "/api/v1/Setup/Groupings/Recordings": {
       "get": {
         "tags": [
-          "api/v1/Groupings/Recordings"
+          "api/v1/Setup/Groupings/Recordings"
         ],
         "summary": "Returns all Groupings",
         "description": "Returns all Groupings",
@@ -555,7 +555,7 @@
       },
       "post": {
         "tags": [
-          "api/v1/Groupings/Recordings"
+          "api/v1/Setup/Groupings/Recordings"
         ],
         "summary": "Add a new grouping",
         "description": "",
@@ -584,10 +584,10 @@
         }
       }
     },
-    "/api/v1/Groupings/Recordings/{groupingId}": {
+    "/api/v1/Setup/Groupings/Recordings/{groupingId}": {
       "get": {
         "tags": [
-          "api/v1/Groupings/Recordings"
+          "api/v1/Setup/Groupings/Recordings"
         ],
         "summary": "Find Grouping by ID",
         "description": "Returns a single Grouping",
@@ -621,7 +621,7 @@
       },
       "delete": {
         "tags": [
-          "api/v1/Groupings/Recordings"
+          "api/v1/Setup/Groupings/Recordings"
         ],
         "summary": "Deletes a Grouping",
         "description": "",
@@ -649,10 +649,10 @@
         }
       }
     },
-    "/api/v1/Groupings/Recordings/{groupingId}/GetStatus": {
+    "/api/v1/Setup/Groupings/Recordings/{groupingId}/GetStatus": {
       "get": {
         "tags": [
-          "api/v1/Groupings/Recordings"
+          "api/v1/Setup/Groupings/Recordings"
         ],
         "summary": "Gets progress status of scope.",
         "description": "Returns progress info message for given scope.",
@@ -681,10 +681,10 @@
         "deprecated": false
       }
     },
-    "/api/v1/Groupings/Recordings/{groupingId}/UploadImage": {
+    "/api/v1/Setup/Groupings/Recordings/{groupingId}/UploadImage": {
       "post": {
         "tags": [
-          "api/v1/Groupings/Recordings"
+          "api/v1/Setup/Groupings/Recordings"
         ],
         "summary": "uploads an image",
         "description": "",
@@ -722,10 +722,10 @@
         }
       }
     },
-    "/api/v1/Groupings/Recordings/{groupingId}/VideoRecords": {
+    "/api/v1/Setup/Groupings/Recordings/{groupingId}/VideoRecords": {
       "get": {
         "tags": [
-          "api/v1/Groupings/Recordings"
+          "api/v1/Setup/Groupings/Recordings"
         ],
         "summary": "Returns all video records",
         "description": "Returns all video records",
@@ -752,13 +752,13 @@
         }
       }
     },
-    "/api/v1/Groupings/Recordings/{groupingId}/VideoRecords/{videoRecordId}": {
+    "/api/v1/Setup/Groupings/Recordings/{groupingId}/VideoRecords/{videoRecordId}": {
       "get": {
         "tags": [
-          "api/v1/Groupings/Recordings"
+          "api/v1/Setup/Groupings/Recordings"
         ],
-        "summary": "Returns grouping video",
-        "description": "Returns grouping video",
+        "summary": "Returns VideoRecord which is linked to Grouping",
+        "description": "Returns VideoRecord which is linked to Grouping",
         "operationId": "getGroupingVideoRecord",
         "produces": [
           "application/json"
@@ -789,10 +789,10 @@
         }
       }
     },
-    "/api/v1/Groupings/Recordings/{groupingId}/LinkToVideoRecord": {
+    "/api/v1/Setup/Groupings/Recordings/{groupingId}/LinkToVideoRecord": {
       "post": {
         "tags": [
-          "api/v1/Groupings/Recordings"
+          "api/v1/Setup/Groupings/Recordings"
         ],
         "summary": "Links to VideoRecord.",
         "operationId": "Grouping_LinkToVideoRecord",
@@ -840,10 +840,10 @@
         "deprecated": false
       }
     },
-    "/api/v1/Groupings/Recordings/{groupingId}/UnLinkFromVideoRecord": {
+    "/api/v1/Setup/Groupings/Recordings/{groupingId}/UnLinkFromVideoRecord": {
       "post": {
         "tags": [
-          "api/v1/Groupings/Recordings"
+          "api/v1/Setup/Groupings/Recordings"
         ],
         "summary": "Unlink from VideoRecord.",
         "operationId": "Grouping_UnlinkFromVideoRecord",
@@ -885,6 +885,210 @@
         ]
       }
     },
+    "/api/v1/Setup/Resources/TemplateGenerators": {
+      "get": {
+        "tags": [
+          "api/v1/Setup/Resources"
+        ],
+        "summary": "Configuration of TemplateGenerators",
+        "operationId": "TemplateGenerator_Get",
+        "consumes": [],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ListTemplateGenerator"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/Setup/Resources/TemplateGenerators/{resourceId}": {
+      "get": {
+        "tags": [
+          "api/v1/Setup/Resources"
+        ],
+        "summary": "Returns all types of TemplateGenerators",
+        "description": "Returns all types of TemplateGenerators",
+        "operationId": "TemplateGenerators_Get",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "resourceId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/TemplateGenerator"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Setup/Resources/FaceDetectors": {
+      "get": {
+        "tags": [
+          "api/v1/Setup/Resources"
+        ],
+        "summary": "Configuration of FaceDetectors",
+        "operationId": "FaceDetector_Get",
+        "consumes": [],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ListFaceDetectors"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/Setup/Resources/FaceDetectors/{resourceId}": {
+      "get": {
+        "tags": [
+          "api/v1/Setup/Resources"
+        ],
+        "summary": "Returns all types of FaceDetectors",
+        "description": "Returns all types of FaceDetectors",
+        "operationId": "FaceDetectors_Get",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "resourceId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/FaceDetector"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Setup/Resources/BodyDetectors": {
+      "get": {
+        "tags": [
+          "api/v1/Setup/Resources"
+        ],
+        "summary": "Configuration of BodyDetectors",
+        "operationId": "BodyDetector_Get",
+        "consumes": [],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ListBodyDetectors"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/Setup/Resources/BodyDetectors/{resourceId}": {
+      "get": {
+        "tags": [
+          "api/v1/Setup/Resources"
+        ],
+        "summary": "Returns all types of BodyDetectors",
+        "description": "Returns all types of BodyDetectors",
+        "operationId": "BodyDetectors_Get",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "resourceId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/BodyDetector"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Setup/Resources/CarDetectors": {
+      "get": {
+        "tags": [
+          "api/v1/Setup/Resources"
+        ],
+        "summary": "Configuration of CarDetectors",
+        "operationId": "CarDetector_Get",
+        "consumes": [],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ListCarDetectors"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/Setup/Resources/CarDetectors/{resourceId}": {
+      "get": {
+        "tags": [
+          "api/v1/Setup/Resources"
+        ],
+        "summary": "Returns all types of CarDetectors",
+        "description": "Returns all types of CarDetectors",
+        "operationId": "CarDetectors_Get",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "resourceId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CarDetector"
+            }
+          }
+        }
+      }
+    },
     "/api/v1/Version": {
       "get": {
         "tags": [
@@ -908,39 +1112,12 @@
         "deprecated": false
       }
     },
-    "/api/v1/License/Check": {
-      "get": {
-        "tags": [
-          "api/v1/License"
-        ],
-        "summary": "Validate Innovatrics license",
-        "operationId": "LicenseCheck_Check",
-        "consumes": [],
-        "produces": [
-          "application/json",
-          "text/json",
-          "application/xml",
-          "text/xml",
-          "application/x-www-form-urlencoded",
-          "multipart/form-data",
-          "application/octet-stream"
-        ],
-        "responses": {
-          "200": {
-            "description": "Status returned.",
-            "schema": {
-              "$ref": "#/definitions/LicenseCheckResponse"
-            }
-          }
-        }
-      }
-    },
     "/api/v1/Config/SoftRestart": {
       "post": {
         "tags": [
           "api/v1/Config"
         ],
-        "summary": "Handle soft api/v1art of SmartFace services.",
+        "summary": "Handle soft restart of SmartFace services.",
         "operationId": "Services_SoftRestart",
         "consumes": [],
         "produces": [
@@ -1054,61 +1231,6 @@
             "required": true,
             "schema": {
               "$ref": "#/definitions/DbCleanUpConfig"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "type": "object"
-            }
-          }
-        },
-        "deprecated": false
-      }
-    },
-    "/api/v1/Config/Extracting": {
-      "get": {
-        "tags": [
-          "api/v1/Config"
-        ],
-        "summary": "Gets Config for Extract Workers.",
-        "operationId": "ExtractorConfig_Get",
-        "consumes": [],
-        "produces": [
-          "application/json"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/ExtractorConfig"
-            }
-          }
-        },
-        "deprecated": false
-      },
-      "patch": {
-        "tags": [
-          "api/v1/Config"
-        ],
-        "summary": "Updates ExtractorConfig.",
-        "operationId": "ExtractorConfig_Patch",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "ExtractorConfig",
-            "in": "body",
-            "description": "The entity to patch",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/ExtractorConfig"
             }
           }
         ],
@@ -1247,10 +1369,10 @@
         "deprecated": false
       }
     },
-    "/api/v1/Appearances/Tracklets/{Id}'": {
+    "/api/v1/Tracklets/{Id}'": {
       "get": {
         "tags": [
-          "api/v1/Appearances/Tracklets"
+          "api/v1/Tracklets"
         ],
         "summary": "Gets the specified Tracklet.",
         "operationId": "Tracklets_GetById",
@@ -1280,7 +1402,7 @@
       },
       "delete": {
         "tags": [
-          "api/v1/Appearances/Tracklets"
+          "api/v1/Tracklets"
         ],
         "summary": "Deletes the specified Tracklet.",
         "operationId": "Tracklets_DeleteById",
@@ -1309,13 +1431,13 @@
         "deprecated": false
       }
     },
-    "/api/v1/Appearances/Identities/{Id}": {
+    "/api/v1/Individuals/{Id}": {
       "get": {
         "tags": [
-          "api/v1/Appearances/Identities"
+          "api/v1/Individuals"
         ],
-        "summary": "Gets the specified Identity.",
-        "operationId": "Identities_GetById",
+        "summary": "Gets the specified Individual.",
+        "operationId": "Individuals_GetById",
         "consumes": [],
         "produces": [
           "application/json"
@@ -1324,7 +1446,7 @@
           {
             "name": "Id",
             "in": "path",
-            "description": "Id of Identity which is requested.",
+            "description": "Id of Individual which is requested.",
             "required": true,
             "type": "integer",
             "format": "int64"
@@ -1334,7 +1456,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Identity"
+              "$ref": "#/definitions/Individual"
             }
           }
         },
@@ -1342,10 +1464,10 @@
       },
       "delete": {
         "tags": [
-          "api/v1/Appearances/Identities"
+          "api/v1/Individuals"
         ],
-        "summary": "Deletes the specified identity.",
-        "operationId": "Identities_DeleteById",
+        "summary": "Deletes the specified Individual.",
+        "operationId": "Individuals_DeleteById",
         "consumes": [],
         "produces": [
           "application/json"
@@ -1354,7 +1476,7 @@
           {
             "name": "Id",
             "in": "path",
-            "description": "Id of identity to be deleted.",
+            "description": "Id of Individual to be deleted.",
             "required": true,
             "type": "integer",
             "format": "int64"
@@ -1365,18 +1487,18 @@
             "description": "Success"
           },
           "404": {
-            "description": "Identity does not exist."
+            "description": "Individual does not exist."
           }
         },
         "deprecated": false
       },
       "patch": {
         "tags": [
-          "api/v1/Appearances/Identities"
+          "api/v1/Individuals"
         ],
-        "summary": "Updates the specified Identity.",
+        "summary": "Updates the specified Individual.",
         "description": "Currently only allows to update Hidden property.",
-        "operationId": "Identities_PatchById",
+        "operationId": "Individuals_PatchById",
         "consumes": [
           "application/json"
         ],
@@ -1387,7 +1509,7 @@
           {
             "name": "Id",
             "in": "path",
-            "description": "Id of Identity that will be updated.",
+            "description": "Id of Individual that will be updated.",
             "required": true,
             "type": "integer",
             "format": "int64"
@@ -1398,7 +1520,7 @@
             "description": "The entity to patch",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/Identity"
+              "$ref": "#/definitions/Individual"
             }
           }
         ],
@@ -1413,14 +1535,14 @@
         "deprecated": false
       }
     },
-    "/api/v1/Appearances/Identities/Split": {
+    "/api/v1/Individuals/Split": {
       "post": {
         "tags": [
-          "api/v1/Appearances/Identities"
+          "api/v1/Individuals"
         ],
         "summary": "Splits the specified parameters.",
-        "description": "Splits requested Tracklets from provided Identity into new Identity. Newly created Identity Id will be returned in response.",
-        "operationId": "Identities_Split",
+        "description": "Splits requested Tracklets from provided Individual into new Individual. Newly created Individual Id will be returned in response.",
+        "operationId": "Individuals_Split",
         "consumes": [
           "application/json"
         ],
@@ -1431,16 +1553,16 @@
           {
             "name": "Payload",
             "in": "body",
-            "description": "JSON with list of Tracklet Ids that will be split to new Identity and Id of Identity that will be splitted.",
+            "description": "JSON with list of Tracklet Ids that will be split to new Individual and Id of Individual that will be splitted.",
             "required": true,
             "schema": {
               "required": [
-                "IdentityId",
+                "IndividualId",
                 "TrackletIds"
               ],
               "type": "object",
               "properties": {
-                "IdentityId": {
+                "IndividualId": {
                   "format": "int64",
                   "type": "integer"
                 },
@@ -1466,14 +1588,14 @@
         "deprecated": false
       }
     },
-    "/api/v1/Appearances/Identities/Merge": {
+    "/api/v1/Individuals/Merge": {
       "post": {
         "tags": [
-          "api/v1/Appearances/Identities"
+          "api/v1/Individuals"
         ],
-        "summary": "Merges the specified Identities.",
-        "description": "Merge provided Identities into single Identity. Id of first Identity Id will be used as merged Identity Id.",
-        "operationId": "Identities_Merge",
+        "summary": "Merges the specified Individuals.",
+        "description": "Merge provided Individuals into single Individual. Id of first Individual Id will be used as merged Individual Id.",
+        "operationId": "Individuals_Merge",
         "consumes": [
           "application/json"
         ],
@@ -1484,7 +1606,7 @@
           {
             "name": "Payload",
             "in": "body",
-            "description": "JSON with list of Identity Ids that will be merged.",
+            "description": "JSON with list of Individual Ids that will be merged.",
             "required": true,
             "schema": {
               "required": [
@@ -1514,14 +1636,14 @@
         "deprecated": false
       }
     },
-    "/api/v1/Appearances/Identities/Search": {
+    "/api/v1/Individuals/Search": {
       "post": {
         "tags": [
-          "api/v1/Appearances/Identities"
+          "api/v1/Individuals"
         ],
-        "summary": "Searches Identities by specified Frame.",
-        "description": "Search will be performed on all Identities in specified Grouping or Scope, using all of their Faces. Uploaded Frame should contain only one face.",
-        "operationId": "Identities_Search",
+        "summary": "Searches Individuals by specified Frame.",
+        "description": "Search will be performed on all Individuals in specified Grouping or Scope, using all of their Faces. Uploaded Frame should contain only one face.",
+        "operationId": "Individuals_Search",
         "consumes": [
           "multipart/form-data"
         ],
@@ -1555,7 +1677,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/ODataResponse[List[Identity]]"
+              "$ref": "#/definitions/ODataResponse[List[Individual]]"
             }
           }
         },
@@ -1663,71 +1785,6 @@
         ],
         "responses": {
           "200": {
-            "description": "Success"
-          },
-          "404": {
-            "description": "Not found"
-          }
-        },
-        "deprecated": false
-      }
-    },
-    "/api/v1/Streams/{Id}'": {
-      "get": {
-        "tags": [
-          "api/v1/Streams"
-        ],
-        "summary": "Gets the specified Stream.",
-        "operationId": "Streams_GetById",
-        "consumes": [],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "Id",
-            "in": "path",
-            "description": "Id of requested Stream.",
-            "required": true,
-            "type": "integer",
-            "format": "int64"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "$ref": "#/definitions/StreamData"
-            }
-          }
-        },
-        "deprecated": false
-      },
-      "delete": {
-        "tags": [
-          "api/v1/Streams"
-        ],
-        "summary": "Updates specified Stream.",
-        "description": "Currently only allows to update Description or Name.",
-        "operationId": "Streams_DeleteById",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "Id",
-            "in": "path",
-            "description": "Id of Stream that will be deleted.",
-            "required": true,
-            "type": "integer",
-            "format": "int64"
-          }
-        ],
-        "responses": {
-          "204": {
             "description": "Success"
           },
           "404": {
@@ -2496,13 +2553,13 @@
         "deprecated": false
       }
     },
-    "/odata/Scopes(Id={id})/Identities": {
+    "/odata/Scopes(Id={id})/Individuals": {
       "get": {
         "tags": [
           "odata/Scopes"
         ],
-        "summary": "Gets Identities that belong to specified scope.",
-        "operationId": "Scopes_GetIdentitiesById",
+        "summary": "Gets Individuals that belong to specified scope.",
+        "operationId": "Scopes_GetIndividualsById",
         "consumes": [],
         "produces": [
           "application/json"
@@ -2572,7 +2629,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/ODataResponse[List[Identity]]"
+              "$ref": "#/definitions/ODataResponse[List[Individual]]"
             }
           }
         },
@@ -3025,13 +3082,13 @@
         "deprecated": false
       }
     },
-    "/odata/Identities": {
+    "/odata/Individuals": {
       "get": {
         "tags": [
-          "odata/Identities"
+          "odata/Individuals"
         ],
-        "summary": "Gets list of all Identities present on the server.",
-        "operationId": "Identities_Get",
+        "summary": "Gets list of all Individuals present on the server.",
+        "operationId": "Individuals_Get",
         "consumes": [],
         "produces": [
           "application/json"
@@ -3093,20 +3150,20 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/ODataResponse[List[Identity]]"
+              "$ref": "#/definitions/ODataResponse[List[Individual]]"
             }
           }
         },
         "deprecated": false
       }
     },
-    "/odata/Identities({Id})": {
+    "/odata/Individuals({Id})": {
       "get": {
         "tags": [
-          "odata/Identities"
+          "odata/Individuals"
         ],
-        "summary": "Gets the specified Identity.",
-        "operationId": "Identities_GetById",
+        "summary": "Gets the specified Individual.",
+        "operationId": "Individuals_GetById",
         "consumes": [],
         "produces": [
           "application/json"
@@ -3115,7 +3172,7 @@
           {
             "name": "Id",
             "in": "path",
-            "description": "Id of Identity which is requested.",
+            "description": "Id of Individual which is requested.",
             "required": true,
             "type": "integer",
             "format": "int64"
@@ -3139,20 +3196,20 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Identity"
+              "$ref": "#/definitions/Individual"
             }
           }
         },
         "deprecated": false
       }
     },
-    "/odata/Identities(Id={id})/Frames": {
+    "/odata/Individuals(Id={id})/Frames": {
       "get": {
         "tags": [
-          "odata/Identities"
+          "odata/Individuals"
         ],
-        "summary": "Gets the Frames that belong to specified Identity.",
-        "operationId": "Identities_GetFramesById",
+        "summary": "Gets the Frames that belong to specified Individual.",
+        "operationId": "Individuals_GetFramesById",
         "consumes": [],
         "produces": [
           "application/json"
@@ -3161,7 +3218,7 @@
           {
             "name": "Id",
             "in": "path",
-            "description": "Id of Identity.",
+            "description": "Id of Individual.",
             "required": true,
             "type": "integer",
             "format": "int64"
@@ -3229,13 +3286,13 @@
         "deprecated": false
       }
     },
-    "/odata/Identities(Id={id})/Faces": {
+    "/odata/Individuals(Id={id})/Faces": {
       "get": {
         "tags": [
-          "odata/Identities"
+          "odata/Individuals"
         ],
-        "summary": "Gets the faces that belong to Identity with Id.",
-        "operationId": "Identities_GetFacesById",
+        "summary": "Gets the faces that belong to Individual with Id.",
+        "operationId": "Individuals_GetFacesById",
         "consumes": [],
         "produces": [
           "application/json"
@@ -3244,7 +3301,7 @@
           {
             "name": "Id",
             "in": "path",
-            "description": "Id of Identity.",
+            "description": "Id of Individual.",
             "required": true,
             "type": "integer",
             "format": "int64"
@@ -3433,13 +3490,13 @@
         "deprecated": false
       }
     },
-    "/odata/Groupings(Id={id})/Identities": {
+    "/odata/Groupings(Id={id})/Individuals": {
       "get": {
         "tags": [
           "odata/Groupings"
         ],
-        "summary": "Gets list of all Identities which belong to specified Grouping.",
-        "operationId": "Groupings_GetIdentitiesById",
+        "summary": "Gets list of all Individuals which belong to specified Grouping.",
+        "operationId": "Groupings_GetIndividualsById",
         "consumes": [],
         "produces": [
           "application/json"
@@ -3509,7 +3566,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/ODataResponse[List[Identity]]"
+              "$ref": "#/definitions/ODataResponse[List[Individual]]"
             }
           }
         },
@@ -3637,13 +3694,13 @@
         "deprecated": false
       }
     },
-    "/odata/Frames(Id={id})/Identities": {
+    "/odata/Frames(Id={id})/Individuals": {
       "get": {
         "tags": [
           "odata/Frames"
         ],
-        "summary": "Gets Identities that belong to specified Frame.",
-        "operationId": "Frames_GetIdentitiesById",
+        "summary": "Gets Individuals that belong to specified Frame.",
+        "operationId": "Frames_GetIndividualsById",
         "consumes": [],
         "produces": [
           "application/json"
@@ -3713,7 +3770,7 @@
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/ODataResponse[List[Identity]]"
+              "$ref": "#/definitions/ODataResponse[List[Individual]]"
             }
           }
         },
@@ -3875,7 +3932,7 @@
             }
           }
         },
-        "deprecated": false
+        "deprecated": true
       }
     },
     "/odata/Streams({Id})": {
@@ -3921,7 +3978,7 @@
             }
           }
         },
-        "deprecated": false
+        "deprecated": true
       }
     },
     "/odata/WatchlistMembers": {
@@ -4316,21 +4373,91 @@
         }
       }
     },
-    "ExtractorConfig": {
+    "TemplateGenerator": {
       "type": "object",
       "properties": {
-        "ExtractorsCount": {
-          "type": "integer",
-          "format": "int64",
-          "example": 3
-        },
-        "GpuEnabled": {
-          "type": "boolean",
-          "example": true
+        "ResourceId": {
+          "type": "string",
+          "example": "gpu"
         }
       }
     },
-    "FaceHandlerConfig": {
+    "ListTemplateGenerator": {
+      "required": [],
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TemplateGenerator"
+          }
+        }
+      }
+    },
+    "FaceDetector": {
+      "type": "object",
+      "properties": {
+        "ResourceId": {
+          "type": "string",
+          "example": "accurate_gpu"
+        }
+      }
+    },
+    "ListFaceDetectors": {
+      "required": [],
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FaceDetector"
+          }
+        }
+      }
+    },
+    "BodyDetector": {
+      "type": "object",
+      "properties": {
+        "ResourceId": {
+          "type": "string",
+          "example": "default"
+        }
+      }
+    },
+    "ListBodyDetectors": {
+      "required": [],
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/BodyDetector"
+          }
+        }
+      }
+    },
+    "CarDetector": {
+      "type": "object",
+      "properties": {
+        "ResourceId": {
+          "type": "string",
+          "example": "default"
+        }
+      }
+    },
+    "ListCarDetectors": {
+      "required": [],
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CarDetector"
+          }
+        }
+      }
+    },
+    "FaceDetectorConfig": {
       "type": "object",
       "properties": {
         "MinFaceSize": {
@@ -4352,14 +4479,6 @@
           "type": "integer",
           "format": "int64",
           "example": 900
-        },
-        "FaceDetSpeedAccuracyMode": {
-          "type": "string",
-          "example": "accurate_server"
-        },
-        "Enabled": {
-          "type": "boolean",
-          "example": true
         }
       }
     },
@@ -4485,20 +4604,28 @@
           "type": "string",
           "example": "rtsp://cam1"
         },
-        "GpuDetection": {
-          "type": "boolean",
-          "example": true
-        },
         "Enabled": {
           "type": "boolean",
           "example": true
         },
-        "ObjectDetectionEnabled": {
-          "type": "boolean",
-          "example": true
+        "TemplateGeneratorResourceId": {
+          "type": "string",
+          "example": "gpu"
         },
-        "FaceDetection": {
-          "$ref": "#/definitions/FaceHandlerConfig"
+        "BodyDetectorResurceId": {
+          "type": "string",
+          "example": "default"
+        },
+        "CarDetectorResurceId": {
+          "type": "string",
+          "example": "none"
+        },
+        "FaceDetectorResourceId": {
+          "type": "string",
+          "example": "accurate_gpu"
+        },
+        "FaceDetectorConfig": {
+          "$ref": "#/definitions/FaceDetectorConfig"
         }
       }
     },
@@ -4528,20 +4655,28 @@
           "type": "string",
           "example": "http://vid.mpeg4"
         },
-        "GpuDetection": {
-          "type": "boolean",
-          "example": true
-        },
         "Enabled": {
           "type": "boolean",
           "example": true
         },
-        "ObjectDetectionEnabled": {
-          "type": "boolean",
-          "example": true
+        "TemplateGeneratorResourceId": {
+          "type": "string",
+          "example": "gpu"
         },
-        "FaceDetection": {
-          "$ref": "#/definitions/FaceHandlerConfig"
+        "BodyDetectorResurceId": {
+          "type": "string",
+          "example": "default"
+        },
+        "CarDetectorResurceId": {
+          "type": "string",
+          "example": "none"
+        },
+        "FaceDetectorResourceId": {
+          "type": "string",
+          "example": "accurate_cpu"
+        },
+        "FaceDetectorConfig": {
+          "$ref": "#/definitions/FaceDetectorConfig"
         }
       }
     },
@@ -4551,54 +4686,8 @@
         "value": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/LiveCamera"
+            "$ref": "#/definitions/VideoRecord"
           }
-        }
-      }
-    },
-    "LicenseCheckResponse": {
-      "required": [
-        "Licenses",
-        "Validity"
-      ],
-      "type": "object",
-      "properties": {
-        "Validity": {
-          "enum": [
-            "Valid",
-            "Invalid",
-            "Unknown"
-          ],
-          "type": "string"
-        },
-        "Licenses": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/LicenseStatus"
-          }
-        }
-      }
-    },
-    "LicenseStatus": {
-      "required": [
-        "License",
-        "Validity"
-      ],
-      "type": "object",
-      "properties": {
-        "License": {
-          "type": "string"
-        },
-        "Validity": {
-          "enum": [
-            "Valid",
-            "Invalid",
-            "Unknown"
-          ],
-          "type": "string"
-        },
-        "Note": {
-          "type": "string"
         }
       }
     },
@@ -5386,7 +5475,7 @@
         }
       }
     },
-    "Identity": {
+    "Individual": {
       "required": [
         "Id",
         "GroupingId",
@@ -5704,7 +5793,7 @@
         }
       }
     },
-    "ODataResponse[List[Identity]]": {
+    "ODataResponse[List[Individual]]": {
       "required": [],
       "type": "object",
       "properties": {
@@ -5714,7 +5803,7 @@
         "value": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Identity"
+            "$ref": "#/definitions/Individual"
           }
         }
       }

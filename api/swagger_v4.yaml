@@ -631,9 +631,9 @@ paths:
     get:
       tags:
         - api/v1/Setup/Resources
-      summary: "Returns all video records"
-      description: "Returns all video records"
-      operationId: "getGroupingVideoRecords"
+      summary: "Returns all types of TemplateGenerators"
+      description: "Returns all types of TemplateGenerators"
+      operationId: "TemplateGenerators_Get"
       produces:
         - "application/json"
       parameters:
@@ -647,7 +647,111 @@ paths:
           schema:
             $ref: '#/definitions/TemplateGenerator'
 
+  /api/v1/Setup/Resources/FaceDetectors:
+    get:
+      tags:
+        - api/v1/Setup/Resources
+      summary: Configuration of FaceDetectors
+      operationId: FaceDetector_Get
+      consumes: []
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/ListFaceDetectors'
+      deprecated: false
+  /api/v1/Setup/Resources/FaceDetectors/{resourceId}:
+    get:
+      tags:
+        - api/v1/Setup/Resources
+      summary: "Returns all types of FaceDetectors"
+      description: "Returns all types of FaceDetectors"
+      operationId: "FaceDetectors_Get"
+      produces:
+        - "application/json"
+      parameters:
+      - name: "resourceId"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/FaceDetector'
+
+  /api/v1/Setup/Resources/BodyDetectors:
+    get:
+      tags:
+        - api/v1/Setup/Resources
+      summary: Configuration of BodyDetectors
+      operationId: BodyDetector_Get
+      consumes: []
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/ListBodyDetectors'
+      deprecated: false
+  /api/v1/Setup/Resources/BodyDetectors/{resourceId}:
+    get:
+      tags:
+        - api/v1/Setup/Resources
+      summary: "Returns all types of BodyDetectors"
+      description: "Returns all types of BodyDetectors"
+      operationId: "BodyDetectors_Get"
+      produces:
+        - "application/json"
+      parameters:
+      - name: "resourceId"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/BodyDetector'
             
+  /api/v1/Setup/Resources/CarDetectors:
+    get:
+      tags:
+        - api/v1/Setup/Resources
+      summary: Configuration of CarDetectors
+      operationId: CarDetector_Get
+      consumes: []
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/ListCarDetectors'
+      deprecated: false
+  /api/v1/Setup/Resources/CarDetectors/{resourceId}:
+    get:
+      tags:
+        - api/v1/Setup/Resources
+      summary: "Returns all types of CarDetectors"
+      description: "Returns all types of CarDetectors"
+      operationId: "CarDetectors_Get"
+      produces:
+        - "application/json"
+      parameters:
+      - name: "resourceId"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/CarDetector'
+
   /api/v1/Version:
     get:
       tags:
@@ -3006,7 +3110,7 @@ definitions:
     properties: 
       ResourceId:
         type: "string"
-        example: "TemplateGenerator_Gpu"
+        example: "gpu"
   ListTemplateGenerator:
     required: []
     type: object
@@ -3016,7 +3120,52 @@ definitions:
         items:
           $ref: '#/definitions/TemplateGenerator'
 
-  FaceHandlerConfig:
+  FaceDetector:
+    type: "object"
+    properties: 
+      ResourceId:
+        type: "string"
+        example: "accurate_gpu"
+  ListFaceDetectors:
+    required: []
+    type: object
+    properties:
+      value:
+        type: array
+        items:
+          $ref: '#/definitions/FaceDetector'
+
+  BodyDetector:
+    type: "object"
+    properties: 
+      ResourceId:
+        type: "string"
+        example: "default"
+  ListBodyDetectors:
+    required: []
+    type: object
+    properties:
+      value:
+        type: array
+        items:
+          $ref: '#/definitions/BodyDetector'
+
+  CarDetector:
+    type: "object"
+    properties: 
+      ResourceId:
+        type: "string"
+        example: "default"
+  ListCarDetectors:
+    required: []
+    type: object
+    properties:
+      value:
+        type: array
+        items:
+          $ref: '#/definitions/CarDetector'
+
+  FaceDetectorConfig:
     type: "object"
     properties: 
       MinFaceSize:
@@ -3035,12 +3184,6 @@ definitions:
         type: "integer"
         format: "int64"
         example: 900
-      FaceDetSpeedAccuracyMode:
-        type: "string"
-        example: "accurate_server"
-      Enabled:
-        type: boolean
-        example: true
 
   LiveGrouping:
     type: "object"
@@ -3136,17 +3279,23 @@ definitions:
       Source:
         type: "string"
         example: "rtsp://cam1"
-      GpuDetection:
-        type: boolean
-        example: true
       Enabled:
         type: boolean
         example: true
-      ObjectDetectionEnabled:
-        type: boolean
-        example: true
-      FaceDetection:
-        $ref: '#/definitions/FaceHandlerConfig'
+      TemplateGeneratorResourceId:
+        type: "string"
+        example: "gpu"
+      BodyDetectorResurceId:
+        type: "string"
+        example: "default"
+      CarDetectorResurceId:
+        type: "string"
+        example: "none"
+      FaceDetectorResourceId:
+        type: "string"
+        example: "accurate_gpu"
+      FaceDetectorConfig:
+        $ref: '#/definitions/FaceDetectorConfig'
         
   ListLiveCamera:
     type: object
@@ -3167,18 +3316,24 @@ definitions:
         example: "bank entrance"
       Source:
         type: "string"
-        example: "http://vid.mpeg4" 
-      GpuDetection:
-        type: boolean
-        example: true
+        example: "http://vid.mpeg4"
       Enabled:
         type: boolean
         example: true
-      ObjectDetectionEnabled:
-        type: boolean
-        example: true
-      FaceDetection:
-        $ref: '#/definitions/FaceHandlerConfig'
+      TemplateGeneratorResourceId:
+        type: "string"
+        example: "gpu"
+      BodyDetectorResurceId:
+        type: "string"
+        example: "default"
+      CarDetectorResurceId:
+        type: "string"
+        example: "none"
+      FaceDetectorResourceId:
+        type: "string"
+        example: "accurate_cpu"
+      FaceDetectorConfig:
+        $ref: '#/definitions/FaceDetectorConfig'
         
   ListVideoRecord:
     type: object
@@ -3186,7 +3341,7 @@ definitions:
       value:
         type: array
         items:
-          $ref: '#/definitions/LiveCamera'
+          $ref: '#/definitions/VideoRecord'
           
   RegisterWatchlistMemberData:
     required:
